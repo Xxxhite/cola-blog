@@ -1,11 +1,11 @@
-import { Elysia, t } from "elysia";
-import { postService } from "../services/post.service";
+import {Elysia, t} from "elysia";
+import {postService} from "../services/post.service";
 
-export const postController = new Elysia({ prefix: "/posts" })
+export const postController = new Elysia({prefix: "/posts"})
     /**
      * 获取文章列表 (分页与过滤)
      */
-    .get("/", ({ query }) => {
+    .get("/", ({query}) => {
         return postService.getPosts({
             page: query.page ? Number(query.page) : undefined,
             limit: query.limit ? Number(query.limit) : undefined,
@@ -30,7 +30,7 @@ export const postController = new Elysia({ prefix: "/posts" })
     /**
      * 根据 ID 获取文章
      */
-    .get("/:id", ({ params: { id } }) => postService.getPostById(Number(id)), {
+    .get("/:id", ({params: {id}}) => postService.getPostById(Number(id)), {
         params: t.Object({
             id: t.String()
         })
@@ -39,7 +39,7 @@ export const postController = new Elysia({ prefix: "/posts" })
     /**
      * 根据 Slug 获取文章
      */
-    .get("/slug/:slug", ({ params: { slug } }) => postService.getPostBySlug(slug), {
+    .get("/slug/:slug", ({params: {slug}}) => postService.getPostBySlug(slug), {
         params: t.Object({
             slug: t.String()
         })
@@ -48,7 +48,7 @@ export const postController = new Elysia({ prefix: "/posts" })
     /**
      * 创建文章
      */
-    .post("/", ({ body }) => postService.createPost(body), {
+    .post("/", ({body}) => postService.createPost(body), {
         body: t.Object({
             title: t.String(),
             slug: t.String(),
@@ -68,7 +68,7 @@ export const postController = new Elysia({ prefix: "/posts" })
     /**
      * 更新文章
      */
-    .patch("/:id", ({ params: { id }, body }) => postService.updatePost(Number(id), body), {
+    .patch("/:id", ({params: {id}, body}) => postService.updatePost(Number(id), body), {
         params: t.Object({
             id: t.String()
         }),
@@ -91,7 +91,7 @@ export const postController = new Elysia({ prefix: "/posts" })
     /**
      * 删除文章
      */
-    .delete("/:id", ({ params: { id } }) => postService.deletePost(Number(id)), {
+    .delete("/:id", ({params: {id}}) => postService.deletePost(Number(id)), {
         params: t.Object({
             id: t.String()
         })
@@ -100,7 +100,7 @@ export const postController = new Elysia({ prefix: "/posts" })
     /**
      * 增加文章阅读量
      */
-    .patch("/:id/views", ({ params: { id } }) => postService.incrementViews(Number(id)), {
+    .patch("/:id/views", ({params: {id}}) => postService.incrementViews(Number(id)), {
         params: t.Object({
             id: t.String()
         })

@@ -1,6 +1,6 @@
-import { db } from "../db";
-import { posts, categories, users, postTags, tags } from "../db/schema";
-import { eq, desc, and, count, sql, inArray } from "drizzle-orm";
+import {db} from "../db";
+import {posts, categories, users, postTags, tags} from "../db/schema";
+import {eq, desc, and, count, sql, inArray} from "drizzle-orm";
 
 export type Post = typeof posts.$inferSelect;
 export type PostInsert = typeof posts.$inferInsert;
@@ -16,20 +16,20 @@ export class PostService {
         status?: "draft" | "published" | "archived";
         tagId?: number;
     } = {}) {
-        const { page = 1, limit = 10, categoryId, status, tagId } = options;
+        const {page = 1, limit = 10, categoryId, status, tagId} = options;
         const offset = (page - 1) * limit;
 
         const whereClauses = [];
         if (categoryId) whereClauses.push(eq(posts.categoryId, categoryId));
         if (status) whereClauses.push(eq(posts.status, status));
-        
+
         // 如果有标签过滤，需要先查出关联的文章 ID
         if (tagId) {
-            const postIdsWithTag = await db.select({ postId: postTags.postId })
+            const postIdsWithTag = await db.select({postId: postTags.postId})
                 .from(postTags)
                 .where(eq(postTags.tagId, tagId));
-            
-            if (postIdsWithTag.length === 0) return { data: [], total: 0 };
+
+            if (postIdsWithTag.length === 0) return {data: [], total: 0};
             whereClauses.push(inArray(posts.id, postIdsWithTag.map(p => p.postId)));
         }
 
@@ -55,15 +55,15 @@ export class PostService {
                 avatar: users.avatar
             }
         })
-        .from(posts)
-        .leftJoin(categories, eq(posts.categoryId, categories.id))
-        .leftJoin(users, eq(posts.authorId, users.id))
-        .where(where)
-        .orderBy(desc(posts.createdAt))
-        .limit(limit)
-        .offset(offset);
+            .from(posts)
+            .leftJoin(categories, eq(posts.categoryId, categories.id))
+            .leftJoin(users, eq(posts.authorId, users.id))
+            .where(where)
+            .orderBy(desc(posts.createdAt))
+            .limit(limit)
+            .offset(offset);
 
-        const totalResult = await db.select({ count: count() }).from(posts).where(where);
+        const totalResult = await db.select({count: count()}).from(posts).where(where);
         const total = Number(totalResult[0].count);
 
         return {
@@ -89,10 +89,10 @@ export class PostService {
                 bio: users.bio
             }
         })
-        .from(posts)
-        .leftJoin(categories, eq(posts.categoryId, categories.id))
-        .leftJoin(users, eq(posts.authorId, users.id))
-        .where(eq(posts.id, id));
+            .from(posts)
+            .leftJoin(categories, eq(posts.categoryId, categories.id))
+            .leftJoin(users, eq(posts.authorId, users.id))
+            .where(eq(posts.id, id));
 
         if (result.length === 0) return null;
 
@@ -102,9 +102,9 @@ export class PostService {
             name: tags.name,
             slug: tags.slug
         })
-        .from(postTags)
-        .innerJoin(tags, eq(postTags.tagId, tags.id))
-        .where(eq(postTags.postId, id));
+            .from(postTags)
+            .innerJoin(tags, eq(postTags.tagId, tags.id))
+            .where(eq(postTags.postId, id));
 
         return {
             ...result[0].post,
@@ -118,7 +118,7 @@ export class PostService {
      * 根据 Slug 获取文章详情 (通常用于前端展示)
      */
     async getPostBySlug(slug: string) {
-        const result = await db.select({ id: posts.id }).from(posts).where(eq(posts.slug, slug));
+        const result = await db.select({id: posts.id}).from(posts).where(eq(posts.slug, slug));
         if (result.length === 0) return null;
         return await this.getPostById(result[0].id);
     }
@@ -127,8 +127,8 @@ export class PostService {
      * 创建文章
      */
     async createPost(data: PostInsert & { tagIds?: number[] }) {
-        const { tagIds, ...postData } = data;
-        
+        const {tagIds, ...postData} = data;
+
         // 如果是发布状态，设置发布时间
         if (postData.status === "published" && !postData.publishedAt) {
             postData.publishedAt = new Date();
@@ -140,7 +140,7 @@ export class PostService {
         // 处理标签关联
         if (tagIds && tagIds.length > 0) {
             await db.insert(postTags).values(
-                tagIds.map(tagId => ({ postId, tagId }))
+                tagIds.map(tagId => ({postId, tagId}))
             );
         }
 
@@ -151,11 +151,11 @@ export class PostService {
      * 更新文章
      */
     async updatePost(id: number, data: Partial<PostInsert> & { tagIds?: number[] }) {
-        const { tagIds, ...postData } = data;
+        const {tagIds, ...postData} = data;
 
         // 处理发布时间逻辑
         if (postData.status === "published") {
-            const current = await db.select({ publishedAt: posts.publishedAt }).from(posts).where(eq(posts.id, id));
+            const current = await db.select({publishedAt: posts.publishedAt}).from(posts).where(eq(posts.id, id));
             if (current[0] && !current[0].publishedAt) {
                 postData.publishedAt = new Date();
             }
@@ -168,7 +168,7 @@ export class PostService {
             await db.delete(postTags).where(eq(postTags.postId, id));
             if (tagIds.length > 0) {
                 await db.insert(postTags).values(
-                    tagIds.map(tagId => ({ postId: id, tagId }))
+                    tagIds.map(tagId => ({postId: id, tagId}))
                 );
             }
         }
@@ -191,7 +191,7 @@ export class PostService {
      */
     async incrementViews(id: number) {
         return await db.update(posts)
-            .set({ views: sql.raw("views + 1") })
+            .set({views: sql.raw("views + 1")})
             .where(eq(posts.id, id));
     }
 }

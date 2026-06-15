@@ -100,7 +100,7 @@ export class CategoryService {
                 updateData.ancestor = "";
             } else {
                 if (data.parentId === id) throw new Error("Cannot set category as its own parent");
-                
+
                 const parent = await this.getById(data.parentId);
                 if (parent) {
                     // 检查是否将父级设置成了自己的子孙（防止环）
@@ -123,13 +123,13 @@ export class CategoryService {
      */
     async deleteCategory(id: number) {
         // 1. 检查是否有子分类
-        const children = await db.select({ count: count() }).from(categories).where(eq(categories.parentId, id));
+        const children = await db.select({count: count()}).from(categories).where(eq(categories.parentId, id));
         if (Number(children[0].count) > 0) {
             throw new Error("Cannot delete category with children");
         }
 
         // 2. 检查是否有文章关联
-        const postCount = await db.select({ count: count() }).from(posts).where(eq(posts.categoryId, id));
+        const postCount = await db.select({count: count()}).from(posts).where(eq(posts.categoryId, id));
         if (Number(postCount[0].count) > 0) {
             throw new Error("Cannot delete category associated with posts");
         }
@@ -141,7 +141,7 @@ export class CategoryService {
      * 获取指定分类的所有子孙分类 ID
      */
     async getDescendantIds(id: number): Promise<number[]> {
-        const descendants = await db.select({ id: categories.id })
+        const descendants = await db.select({id: categories.id})
             .from(categories)
             .where(
                 or(
