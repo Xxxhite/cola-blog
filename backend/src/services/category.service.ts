@@ -1,6 +1,6 @@
 import {db} from "../db";
 import {categories, posts} from "../db/schema";
-import {eq, sql, count, like, or} from "drizzle-orm";
+import {eq, count, like, or} from "drizzle-orm";
 
 export type Category = typeof categories.$inferSelect;
 export type CategoryInsert = typeof categories.$inferInsert;
