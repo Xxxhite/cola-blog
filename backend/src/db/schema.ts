@@ -1,6 +1,5 @@
 import {
     mysqlTable,
-    serial,
     varchar,
     timestamp,
     text,
