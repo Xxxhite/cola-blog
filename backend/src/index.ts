@@ -1,11 +1,11 @@
 import { Elysia } from "elysia";
 import { cors } from '@elysiajs/cors'
-import { apiRouter } from "./controllers/routes";
+import { categoryController } from "./controllers/category.controller";
 
 const app = new Elysia()
     .use(cors())
     .get("/", () => "Hello Elysia")
-    .use(apiRouter)
+    .use(categoryController)
     .listen(5199);
 
 console.log(
