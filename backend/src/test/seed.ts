@@ -1,5 +1,5 @@
-import {db} from "./db";
-import {users} from "./db/schema";
+import {db} from "../db";
+import {users} from "../db/schema.ts";
 
 async function createTestUser() {
     const password = "123456";
