@@ -1,15 +1,9 @@
 import {Elysia, t} from "elysia";
-import {jwt} from "@elysiajs/jwt";
 import {authService} from "../services/auth.service";
+import {authPlugin} from "../plugins/auth.plugin";
 
 export const authController = new Elysia({prefix: "/auth"})
-    .use(
-        jwt({
-            name: "jwt",
-            secret: process.env.JWT_SECRET || "cola-blog-secret-key",
-            exp: "7d"
-        })
-    )
+    .use(authPlugin)
     /**
      * 用户注册
      */
@@ -61,26 +55,12 @@ export const authController = new Elysia({prefix: "/auth"})
     /**
      * 获取当前登录用户信息
      */
-    .get("/me", async ({jwt, headers, set}) => {
-        const authHeader = headers['authorization'];
-        if (!authHeader?.startsWith('Bearer ')) {
+    .get("/me", async ({getCurrentUser, set}) => {
+        const user = await getCurrentUser();
+        if (!user) {
             set.status = 401;
             return {error: "Unauthorized"};
         }
-
-        const token = authHeader.split(' ')[1];
-        const payload = await jwt.verify(token);
-
-        if (!payload) {
-            set.status = 401;
-            return {error: "Invalid token"};
-        }
-
-        const user = await authService.getUserProfile(payload.id as number);
-        if (!user) {
-            set.status = 404;
-            return {error: "User not found"};
-        }
-
         return user;
     });
+
