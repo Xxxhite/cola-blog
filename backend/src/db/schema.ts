@@ -148,8 +148,8 @@ export const comments = mysqlTable("comments", {
     postId: bigint("post_id", {mode: "number"}).references(() => posts.id).notNull(),
 
     // 关联用户 ID: 
-    // 为空时表示游客/匿名评论 (需根据业务逻辑决定是否允许)
-    userId: bigint("user_id", {mode: "number"}).references(() => users.id),
+    // 要求有关联用户才能发表评论
+    userId: bigint("user_id", {mode: "number"}).references(() => users.id).notNull(),
 
     // 自关联父评论 ID: 
     // 指向被回复的评论 ID。为 NULL 时表示直接对文章的评论
