@@ -1,13 +1,6 @@
 import { Elysia, t } from "elysia";
 import { authPlugin } from "../plugins/auth.plugin";
-import { existsSync, mkdirSync } from "fs";
-import { join } from "path";
-
-// 确保上传目录存在
-const UPLOAD_DIR = "public/uploads";
-if (!existsSync(UPLOAD_DIR)) {
-    mkdirSync(UPLOAD_DIR, { recursive: true });
-}
+import { uploadService } from "../services/upload.service";
 
 export const uploadController = new Elysia({ prefix: "/upload" })
     .use(authPlugin)
@@ -23,31 +16,24 @@ export const uploadController = new Elysia({ prefix: "/upload" })
         }
 
         // 校验文件类型
-        if (!file.type.startsWith("image/")) {
+        if (!uploadService.isImage(file)) {
             set.status = 400;
             return { error: "Only image files are allowed" };
         }
 
         // 校验文件大小 (限制 5MB)
-        const MAX_SIZE = 5 * 1024 * 1024;
-        if (file.size > MAX_SIZE) {
+        if (!uploadService.isValidSize(file, 5)) {
             set.status = 400;
             return { error: "File size exceeds 5MB limit" };
         }
 
-        // 生成唯一文件名: 时间戳 + 随机数 + 原后缀
-        const extension = file.name.split('.').pop();
-        const fileName = `${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${extension}`;
-        const filePath = join(UPLOAD_DIR, fileName);
-
-        // 使用 Bun.write 快速写入文件
-        await Bun.write(filePath, file);
-
-        // 返回文件访问 URL
-        return {
-            url: `/uploads/${fileName}`,
-            name: fileName
-        };
+        // 调用 Service 保存文件
+        try {
+            return await uploadService.saveImage(file);
+        } catch (error) {
+            set.status = 500;
+            return { error: "Failed to upload file" };
+        }
     }, {
         body: t.Object({
             file: t.File()
