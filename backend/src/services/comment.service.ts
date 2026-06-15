@@ -1,6 +1,7 @@
 import {db} from "../db";
 import {comments, users} from "../db/schema";
 import {eq, and, asc, desc, count} from "drizzle-orm";
+import {AIModerator} from "../utils/ai-moderator";
 
 export type Comment = typeof comments.$inferSelect;
 export type CommentInsert = typeof comments.$inferInsert;
@@ -65,14 +66,35 @@ export class CommentService {
      * 创建新评论
      */
     async createComment(data: CommentInsert) {
-        // 默认状态为 pending (待审核)，除非是管理员或特定配置
+        // 默认状态为 pending (待审核)
         const [result] = await db.insert(comments).values({
             ...data,
             status: data.status || "pending"
         });
 
-        const newComment = await db.select().from(comments).where(eq(comments.id, result.insertId));
+        const commentId = result.insertId;
+
+        // 异步执行 AI 审核，不阻塞当前请求
+        this.autoModerate(commentId, data.content);
+
+        const newComment = await db.select().from(comments).where(eq(comments.id, commentId));
         return newComment[0];
+    }
+
+    /**
+     * AI 自动审核逻辑
+     */
+    private async autoModerate(commentId: number, content: string) {
+        const aiResult = await AIModerator.moderate(content);
+        
+        if (aiResult === "approved") {
+            await this.approveComment(commentId);
+        } else {
+            // 如果是 spam 或 rejected，直接更新状态
+            await db.update(comments)
+                .set({ status: aiResult })
+                .where(eq(comments.id, commentId));
+        }
     }
 
     /**
