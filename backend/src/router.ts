@@ -4,6 +4,7 @@ import {postController} from "./controllers/post.controller.ts";
 import {tagController} from "./controllers/tag.controller.ts";
 import {commentController} from "./controllers/comment.controller.ts";
 import {authController} from "./controllers/auth.controller.ts";
+import {uploadController} from "./controllers/upload.controller.ts";
 import {authPlugin} from "./plugins/auth.plugin";
 
 export const apiRouter = new Elysia({prefix: "/api"})
@@ -13,6 +14,7 @@ export const apiRouter = new Elysia({prefix: "/api"})
     .use(tagController)
     .use(commentController)
     .use(authController)
+    .use(uploadController)
     .onBeforeHandle(async ({request, getCurrentUser, set}) => {
         // 允许所有 GET 请求 (查看权限)
         if (request.method === "GET") return;
