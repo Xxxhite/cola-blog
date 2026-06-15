@@ -1,5 +1,5 @@
-import { existsSync, mkdirSync } from "fs";
-import { join, resolve } from "path";
+import {existsSync, mkdirSync} from "fs";
+import {join, resolve} from "path";
 
 export class UploadService {
     // 优先读取环境变量，默认使用项目根目录下的 public/uploads
@@ -15,7 +15,7 @@ export class UploadService {
      */
     private ensureUploadDir() {
         if (!existsSync(this.UPLOAD_DIR)) {
-            mkdirSync(this.UPLOAD_DIR, { recursive: true });
+            mkdirSync(this.UPLOAD_DIR, {recursive: true});
         }
     }
 
