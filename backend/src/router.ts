@@ -7,6 +7,9 @@ import {authController} from "./controllers/auth.controller.ts";
 import {uploadController} from "./controllers/upload.controller.ts";
 import {searchController} from "./controllers/search.controller";
 import {notificationController} from "./controllers/notification.controller";
+import {settingsController} from "./controllers/settings.controller";
+import {linkController} from "./controllers/link.controller";
+import {analyticsController} from "./controllers/analytics.controller";
 import {authPlugin} from "./plugins/auth.plugin";
 
 export const apiRouter = new Elysia({prefix: "/api"})
@@ -19,6 +22,9 @@ export const apiRouter = new Elysia({prefix: "/api"})
     .use(uploadController)
     .use(searchController)
     .use(notificationController)
+    .use(settingsController)
+    .use(linkController)
+    .use(analyticsController)
     .onBeforeHandle(async ({request, getCurrentUser, set}) => {
         // 允许所有 GET 请求 (查看权限)
         if (request.method === "GET") return;

@@ -189,3 +189,39 @@ export const notifications = mysqlTable("notifications", {
 
     createdAt: timestamp("created_at").defaultNow(),
 });
+
+/**
+ * 系统设置表 (Settings)
+ * 使用键值对存储全局配置
+ */
+export const settings = mysqlTable("settings", {
+    // 设置项的键 (如 'site_name', 'seo_keywords')
+    key: varchar("key", {length: 255}).primaryKey(),
+    // 设置项的值 (JSON 或字符串)
+    value: text("value").notNull(),
+    // 描述信息
+    description: varchar("description", {length: 500}),
+
+    updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
+});
+
+/**
+ * 友情链接表 (Links)
+ */
+export const links = mysqlTable("links", {
+    id: bigint("id", {mode: "number"}).primaryKey().autoincrement(),
+    // 网站名称
+    name: varchar("name", {length: 255}).notNull(),
+    // 网站 URL
+    url: varchar("url", {length: 500}).notNull(),
+    // Logo 地址
+    logo: varchar("logo", {length: 500}),
+    // 网站描述
+    description: varchar("description", {length: 500}),
+    // 排序权重 (数字越大越靠前)
+    sort: int("sort").default(0).notNull(),
+    // 审核状态
+    status: mysqlEnum("status", ["pending", "approved", "rejected"]).default("pending").notNull(),
+
+    createdAt: timestamp("created_at").defaultNow(),
+});
