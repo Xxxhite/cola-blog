@@ -1,5 +1,6 @@
 import {Elysia, t} from "elysia";
 import {categoryService} from "../services/category.service";
+import {authPlugin} from "../plugins/auth.plugin";
 
 export const categoryController = new Elysia({prefix: "/categories"})
     .use(authPlugin)

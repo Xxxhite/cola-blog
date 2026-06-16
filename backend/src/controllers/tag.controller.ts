@@ -1,5 +1,6 @@
 import {Elysia, t} from "elysia";
 import {tagService} from "../services/tag.service";
+import {authPlugin} from "../plugins/auth.plugin";
 
 export const tagController = new Elysia({prefix: "/tags"})
     .use(authPlugin)

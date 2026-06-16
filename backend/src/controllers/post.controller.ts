@@ -1,5 +1,6 @@
 import {Elysia, t} from "elysia";
 import {postService} from "../services/post.service";
+import {authPlugin} from "../plugins/auth.plugin";
 
 export const postController = new Elysia({prefix: "/posts"})
     .use(authPlugin)

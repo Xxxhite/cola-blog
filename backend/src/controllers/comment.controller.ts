@@ -1,5 +1,6 @@
 import {Elysia, t} from "elysia";
 import {commentService} from "../services/comment.service";
+import {authPlugin} from "../plugins/auth.plugin";
 
 export const commentController = new Elysia({prefix: "/comments"})
     .use(authPlugin)
