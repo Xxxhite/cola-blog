@@ -4,6 +4,7 @@ import {postController} from "./controllers/post.controller.ts";
 import {tagController} from "./controllers/tag.controller.ts";
 import {commentController} from "./controllers/comment.controller.ts";
 import {authController} from "./controllers/auth.controller.ts";
+import {userController} from "./controllers/user.controller.ts";
 import {uploadController} from "./controllers/upload.controller.ts";
 import {searchController} from "./controllers/search.controller";
 import {notificationController} from "./controllers/notification.controller";
@@ -20,6 +21,7 @@ export const apiRouter = new Elysia({prefix: "/api"})
     .use(tagController)
     .use(commentController)
     .use(authController)
+    .use(userController)
     .use(uploadController)
     .use(searchController)
     .use(notificationController)

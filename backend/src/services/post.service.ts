@@ -41,6 +41,7 @@ export class PostService {
             id: posts.id,
             title: posts.title,
             slug: posts.slug,
+            content: posts.content,
             cover: posts.cover,
             status: posts.status,
             type: posts.type,
