@@ -1,0 +1,42 @@
+@theme {
+  --font-sans: "Roboto", "Noto Sans SC", sans-serif;
+  --font-mono: "Roboto Mono", "JetBrains Mono", monospace;
+
+  --theme-hue: 285; /* Vivid Purple */
+  
+  --primary: oklch(0.65 0.2 var(--theme-hue));
+  --primary-content: oklch(0.98 0.01 var(--theme-hue));
+  
+  --glass-bg: oklch(1 0 0 / 0.6);
+  --glass-bg-dark: oklch(0.1 0 0 / 0.6);
+  --glass-border: oklch(1 0 0 / 0.1);
+  --glass-border-dark: oklch(1 0 0 / 0.05);
+}
+
+@layer base {
+  :root {
+    --page-bg: oklch(0.98 0.01 var(--theme-hue));
+    --card-bg: var(--glass-bg);
+    --text-main: oklch(0.2 0.02 var(--theme-hue));
+  }
+
+  .dark {
+    --page-bg: oklch(0.15 0.02 var(--theme-hue));
+    --card-bg: var(--glass-bg-dark);
+    --text-main: oklch(0.9 0.02 var(--theme-hue));
+  }
+
+  body {
+    @apply bg-[var(--page-bg)] text-[var(--text-main)] transition-colors duration-500 font-sans min-h-screen;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-xl border border-[var(--glass-border)] bg-[var(--card-bg)] shadow-xl rounded-3xl transition-all duration-300;
+  }
+  
+  .dark .glass-card {
+    @apply border-[var(--glass-border-dark)];
+  }
+}
