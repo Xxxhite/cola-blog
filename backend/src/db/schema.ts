@@ -164,3 +164,28 @@ export const comments = mysqlTable("comments", {
     // 发布/审核通过时间
     publishedAt: timestamp("published_at"),
 });
+
+/**
+ * 通知表 (Notifications)
+ * 存储系统通知、评论提醒等
+ */
+export const notifications = mysqlTable("notifications", {
+    id: bigint("id", {mode: "number"}).primaryKey().autoincrement(),
+    // 接收通知的用户 ID
+    userId: bigint("user_id", {mode: "number"}).references(() => users.id).notNull(),
+    // 通知类型: 'comment' (新评论), 'reply' (回复), 'system' (系统通知)
+    type: mysqlEnum("type", ["comment", "reply", "system"]).notNull(),
+    // 通知标题
+    title: varchar("title", {length: 255}).notNull(),
+    // 通知内容
+    content: text("content").notNull(),
+    // 是否已读
+    isRead: int("is_read").default(0).notNull(), // 0: 未读, 1: 已读
+
+    // 关联的业务 ID (如文章 ID, 评论 ID)
+    targetId: bigint("target_id", {mode: "number"}),
+    // 关联的业务类型 (如 'post', 'comment')
+    targetType: varchar("target_type", {length: 50}),
+
+    createdAt: timestamp("created_at").defaultNow(),
+});
