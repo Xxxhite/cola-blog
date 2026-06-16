@@ -1,39 +1,43 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
+import { computed, ref } from 'vue'
 
 interface UserInfo {
-  id: number;
-  username: string;
-  email: string;
-  role: string;
-  avatar?: string;
+  id: number
+  name: string
+  email: string
+  role: string
+  avatar?: string | null
 }
 
-interface AuthState {
-  token: string | null;
-  userInfo: UserInfo | null;
-}
+export const useAuthStore = defineStore('auth', () => {
+  const token = ref<string | null>(localStorage.getItem('token'))
+  const userInfo = ref<UserInfo | null>(null)
 
-export const useAuthStore = defineStore('auth', {
-  state: (): AuthState => ({
-    token: localStorage.getItem('token'),
-    userInfo: null,
-  }),
-  getters: {
-    isLoggedIn: (state) => !!state.token,
-    isAdmin: (state) => state.userInfo?.role === 'admin',
-  },
-  actions: {
-    setToken(token: string) {
-      this.token = token;
-      localStorage.setItem('token', token);
-    },
-    setUserInfo(userInfo: UserInfo) {
-      this.userInfo = userInfo;
-    },
-    logout() {
-      this.token = null;
-      this.userInfo = null;
-      localStorage.removeItem('token');
-    },
-  },
-});
+  const isLoggedIn = computed(() => !!token.value)
+  const isAdmin = computed(() => userInfo.value?.role === 'admin')
+
+  function setToken (newToken: string) {
+    token.value = newToken
+    localStorage.setItem('token', newToken)
+  }
+
+  function setUserInfo (info: UserInfo) {
+    userInfo.value = info
+  }
+
+  function logout () {
+    token.value = null
+    userInfo.value = null
+    localStorage.removeItem('token')
+  }
+
+  return {
+    token,
+    userInfo,
+    isLoggedIn,
+    isAdmin,
+    setToken,
+    setUserInfo,
+    logout,
+  }
+})
