@@ -8,4 +8,4 @@
 ## Stack
 - Framework: Vue 3 + Vite
 - UI Library: Vuetify
-- Enabled Features: ESLint, Pinia, File Router, Tailwind CSS
+- Enabled Features: Pinia, File Router, Tailwind CSS

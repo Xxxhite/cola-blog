@@ -34,7 +34,6 @@ Scaffolded with Vuetify CLI.
 
 ## ✨ Enabled Features
 
-- ESLint
 - Pinia
 - File Router
 - Tailwind CSS
@@ -67,8 +66,6 @@ bun build
 - `bun preview`
 - `bun build-only`
 - `bun type-check`
-- `bun lint`
-- `bun lint:fix`
 
 ## 💪 Support Vuetify Development
 
