@@ -95,6 +95,13 @@ export const posts = mysqlTable("posts", {
     // - 'archived': 已归档，不出现在首页列表，但保留访问路径
     status: mysqlEnum("status", ["draft", "published", "archived"]).default("draft").notNull(),
 
+    // 文章类型: 'post' (长文), 'moment' (短动态/朋友圈)
+    type: mysqlEnum("type", ["post", "moment"]).default("post").notNull(),
+
+    // 内容统计
+    wordCount: int("word_count").default(0).notNull(),
+    readingTime: int("reading_time").default(0).notNull(), // 单位: 分钟
+
     // 累积浏览量
     views: int("views").default(0).notNull(),
 
