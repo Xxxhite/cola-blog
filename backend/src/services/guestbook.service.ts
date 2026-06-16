@@ -43,7 +43,7 @@ export class GuestbookService {
         const messageId = result.insertId;
 
         // 异步 AI 审核
-        this.autoModerate(messageId, data.content);
+        await this.autoModerate(messageId, data.content);
 
         return messageId;
     }
