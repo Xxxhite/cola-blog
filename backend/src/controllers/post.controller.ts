@@ -2,6 +2,7 @@ import {Elysia, t} from "elysia";
 import {postService} from "../services/post.service";
 
 export const postController = new Elysia({prefix: "/posts"})
+    .use(authPlugin)
     /**
      * 获取文章列表 (分页与过滤)
      */
@@ -46,62 +47,67 @@ export const postController = new Elysia({prefix: "/posts"})
     })
 
     /**
-     * 创建文章
-     */
-    .post("/", ({body}) => postService.createPost(body), {
-        body: t.Object({
-            title: t.String(),
-            slug: t.String(),
-            content: t.String(),
-            cover: t.Optional(t.String()),
-            status: t.Optional(t.Enum({
-                draft: "draft",
-                published: "published",
-                archived: "archived"
-            })),
-            categoryId: t.Optional(t.Number()),
-            authorId: t.Number(),
-            tagIds: t.Optional(t.Array(t.Number()))
-        })
-    })
-
-    /**
-     * 更新文章
-     */
-    .patch("/:id", ({params: {id}, body}) => postService.updatePost(Number(id), body), {
-        params: t.Object({
-            id: t.String()
-        }),
-        body: t.Object({
-            title: t.Optional(t.String()),
-            slug: t.Optional(t.String()),
-            content: t.Optional(t.String()),
-            cover: t.Optional(t.String()),
-            status: t.Optional(t.Enum({
-                draft: "draft",
-                published: "published",
-                archived: "archived"
-            })),
-            categoryId: t.Optional(t.Number()),
-            authorId: t.Optional(t.Number()),
-            tagIds: t.Optional(t.Array(t.Number()))
-        })
-    })
-
-    /**
-     * 删除文章
-     */
-    .delete("/:id", ({params: {id}}) => postService.deletePost(Number(id)), {
-        params: t.Object({
-            id: t.String()
-        })
-    })
-
-    /**
      * 增加文章阅读量
      */
     .patch("/:id/views", ({params: {id}}) => postService.incrementViews(Number(id)), {
         params: t.Object({
             id: t.String()
         })
-    });
+    })
+
+    // --- 管理员专用接口 ---
+    .guard({
+        isAdmin: true
+    }, (app) => app
+        /**
+         * 创建文章
+         */
+        .post("/", ({body}) => postService.createPost(body), {
+            body: t.Object({
+                title: t.String(),
+                slug: t.String(),
+                content: t.String(),
+                cover: t.Optional(t.String()),
+                status: t.Optional(t.Enum({
+                    draft: "draft",
+                    published: "published",
+                    archived: "archived"
+                })),
+                categoryId: t.Optional(t.Number()),
+                authorId: t.Number(),
+                tagIds: t.Optional(t.Array(t.Number()))
+            })
+        })
+
+        /**
+         * 更新文章
+         */
+        .patch("/:id", ({params: {id}, body}) => postService.updatePost(Number(id), body), {
+            params: t.Object({
+                id: t.String()
+            }),
+            body: t.Object({
+                title: t.Optional(t.String()),
+                slug: t.Optional(t.String()),
+                content: t.Optional(t.String()),
+                cover: t.Optional(t.String()),
+                status: t.Optional(t.Enum({
+                    draft: "draft",
+                    published: "published",
+                    archived: "archived"
+                })),
+                categoryId: t.Optional(t.Number()),
+                authorId: t.Optional(t.Number()),
+                tagIds: t.Optional(t.Array(t.Number()))
+            })
+        })
+
+        /**
+         * 删除文章
+         */
+        .delete("/:id", ({params: {id}}) => postService.deletePost(Number(id)), {
+            params: t.Object({
+                id: t.String()
+            })
+        })
+    );

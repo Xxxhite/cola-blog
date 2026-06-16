@@ -2,6 +2,7 @@ import {Elysia, t} from "elysia";
 import {tagService} from "../services/tag.service";
 
 export const tagController = new Elysia({prefix: "/tags"})
+    .use(authPlugin)
     /**
      * 获取所有标签
      */
@@ -30,42 +31,47 @@ export const tagController = new Elysia({prefix: "/tags"})
         })
     })
 
-    /**
-     * 创建标签
-     */
-    .post("/", ({body}) => tagService.createTag(body), {
-        body: t.Object({
-            name: t.String(),
-            slug: t.String()
+    // --- 管理员专用接口 ---
+    .guard({
+        isAdmin: true
+    }, (app) => app
+        /**
+         * 创建标签
+         */
+        .post("/", ({body}) => tagService.createTag(body), {
+            body: t.Object({
+                name: t.String(),
+                slug: t.String()
+            })
         })
-    })
 
-    /**
-     * 更新标签
-     */
-    .patch("/:id", ({params: {id}, body}) => tagService.updateTag(Number(id), body), {
-        params: t.Object({
-            id: t.String()
-        }),
-        body: t.Object({
-            name: t.Optional(t.String()),
-            slug: t.Optional(t.String())
+        /**
+         * 更新标签
+         */
+        .patch("/:id", ({params: {id}, body}) => tagService.updateTag(Number(id), body), {
+            params: t.Object({
+                id: t.String()
+            }),
+            body: t.Object({
+                name: t.Optional(t.String()),
+                slug: t.Optional(t.String())
+            })
         })
-    })
 
-    /**
-     * 删除标签
-     */
-    .delete("/:id", async ({params: {id}, set}) => {
-        try {
-            await tagService.deleteTag(Number(id));
-            return {success: true};
-        } catch (error: any) {
-            set.status = 400;
-            return {error: error.message};
-        }
-    }, {
-        params: t.Object({
-            id: t.String()
+        /**
+         * 删除标签
+         */
+        .delete("/:id", async ({params: {id}, set}) => {
+            try {
+                await tagService.deleteTag(Number(id));
+                return {success: true};
+            } catch (error: any) {
+                set.status = 400;
+                return {error: error.message};
+            }
+        }, {
+            params: t.Object({
+                id: t.String()
+            })
         })
-    });
+    );
