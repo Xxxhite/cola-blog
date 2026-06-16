@@ -16,10 +16,12 @@
     "@fontsource/roboto": "^5.2.10",
     "@fontsource/roboto-mono": "^5.2.8",
     "@mdi/font": "7.4.47",
-    "vue": "^3.5.30",
-    "vuetify": "^4.0.2",
+    "axios": "^1.18.0",
+    "md-editor-v3": "^6.5.1",
     "pinia": "^3.0.4",
-    "vue-router": "^5.0.3"
+    "vue": "^3.5.30",
+    "vue-router": "^5.0.3",
+    "vuetify": "^4.0.2"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.2.1",
@@ -39,8 +41,6 @@
     "eslint-config-vuetify": "^4.3.4"
   },
   "overrides": {
-    "unplugin-fonts": {
-      "vite": "^8.0.0"
-    }
+    "vite": "^8.0.0"
   }
 }
