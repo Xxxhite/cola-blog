@@ -10,6 +10,7 @@ import {notificationController} from "./controllers/notification.controller";
 import {settingsController} from "./controllers/settings.controller";
 import {linkController} from "./controllers/link.controller";
 import {analyticsController} from "./controllers/analytics.controller";
+import {guestbookController} from "./controllers/guestbook.controller";
 import {authPlugin} from "./plugins/auth.plugin";
 
 export const apiRouter = new Elysia({prefix: "/api"})
@@ -25,6 +26,7 @@ export const apiRouter = new Elysia({prefix: "/api"})
     .use(settingsController)
     .use(linkController)
     .use(analyticsController)
+    .use(guestbookController)
     .onBeforeHandle(async ({request, getCurrentUser, set}) => {
         // 允许所有 GET 请求 (查看权限)
         if (request.method === "GET") return;

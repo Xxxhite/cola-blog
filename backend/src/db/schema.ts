@@ -206,6 +206,22 @@ export const settings = mysqlTable("settings", {
 });
 
 /**
+ * 留言板消息表 (Guestbook Messages)
+ */
+export const messages = mysqlTable("messages", {
+    id: bigint("id", {mode: "number"}).primaryKey().autoincrement(),
+    // 留言内容
+    content: text("content").notNull(),
+    // 留言用户 ID
+    userId: bigint("user_id", {mode: "number"}).references(() => users.id).notNull(),
+    // 审核状态
+    status: mysqlEnum("status", ["pending", "approved", "spam"]).default("pending").notNull(),
+    
+    createdAt: timestamp("created_at").defaultNow(),
+    publishedAt: timestamp("published_at"),
+});
+
+/**
  * 友情链接表 (Links)
  */
 export const links = mysqlTable("links", {
