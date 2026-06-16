@@ -6,6 +6,12 @@ export type Notification = typeof notifications.$inferSelect;
 export type NotificationInsert = typeof notifications.$inferInsert;
 
 export class NotificationService {
+    // TODO: 外部通知扩展
+    // 1. 集成邮件服务 (如 Nodemailer)，支持 SMTP 配置
+    // 2. 实现 sendEmail(to, subject, content) 基础方法
+    // 3. 在 createNotification 中增加逻辑：根据用户偏好决定是否同步发送邮件提醒
+    // 4. 为注册流程增加发送验证码邮件的功能
+
     /**
      * 获取用户的通知列表
      */
