@@ -22,19 +22,26 @@ export class UploadService {
     /**
      * 保存图片文件
      * @param file 文件对象 (Bun File)
+     * @param category 存储分类 (如 avatars, posts, covers)
      * @returns 保存后的 URL 和文件名
      */
-    async saveImage(file: File) {
+    async saveImage(file: File, category: string = "general") {
+        // 确保分类目录存在
+        const targetDir = join(this.UPLOAD_DIR, category);
+        if (!existsSync(targetDir)) {
+            mkdirSync(targetDir, {recursive: true});
+        }
+
         // 生成唯一文件名: 时间戳 + 随机数 + 原后缀
         const extension = file.name.split('.').pop();
         const fileName = `${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${extension}`;
-        const filePath = join(this.UPLOAD_DIR, fileName);
+        const filePath = join(targetDir, fileName);
 
         // 使用 Bun.write 快速写入文件
         await Bun.write(filePath, file);
 
         return {
-            url: `/uploads/${fileName}`,
+            url: `/uploads/${category}/${fileName}`,
             name: fileName
         };
     }

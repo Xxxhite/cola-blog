@@ -13,7 +13,8 @@ export const postController = new Elysia({prefix: "/posts"})
             limit: query.limit ? Number(query.limit) : undefined,
             categoryId: query.categoryId ? Number(query.categoryId) : undefined,
             tagId: query.tagId ? Number(query.tagId) : undefined,
-            status: query.status as any
+            status: query.status as any,
+            type: query.type as any
         });
     }, {
         query: t.Object({
@@ -25,6 +26,10 @@ export const postController = new Elysia({prefix: "/posts"})
                 draft: "draft",
                 published: "published",
                 archived: "archived"
+            })),
+            type: t.Optional(t.Enum({
+                post: "post",
+                moment: "moment"
             }))
         })
     })
@@ -63,7 +68,7 @@ export const postController = new Elysia({prefix: "/posts"})
         /**
          * 创建文章
          */
-        .post("/", ({body}) => postService.createPost(body), {
+        .post("/", ({body}) => postService.createPost(body as any), {
             body: t.Object({
                 title: t.String(),
                 slug: t.String(),
@@ -74,6 +79,11 @@ export const postController = new Elysia({prefix: "/posts"})
                     published: "published",
                     archived: "archived"
                 })),
+                type: t.Optional(t.Enum({
+                    post: "post",
+                    moment: "moment"
+                })),
+                password: t.Optional(t.String()),
                 categoryId: t.Optional(t.Number()),
                 authorId: t.Number(),
                 tagIds: t.Optional(t.Array(t.Number()))
@@ -83,7 +93,7 @@ export const postController = new Elysia({prefix: "/posts"})
         /**
          * 更新文章
          */
-        .patch("/:id", ({params: {id}, body}) => postService.updatePost(Number(id), body), {
+        .patch("/:id", ({params: {id}, body}) => postService.updatePost(Number(id), body as any), {
             params: t.Object({
                 id: t.String()
             }),
@@ -97,6 +107,11 @@ export const postController = new Elysia({prefix: "/posts"})
                     published: "published",
                     archived: "archived"
                 })),
+                type: t.Optional(t.Enum({
+                    post: "post",
+                    moment: "moment"
+                })),
+                password: t.Optional(t.String()),
                 categoryId: t.Optional(t.Number()),
                 authorId: t.Optional(t.Number()),
                 tagIds: t.Optional(t.Array(t.Number()))

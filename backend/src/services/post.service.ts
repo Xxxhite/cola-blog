@@ -14,14 +14,16 @@ export class PostService {
         limit?: number;
         categoryId?: number;
         status?: "draft" | "published" | "archived";
+        type?: "post" | "moment";
         tagId?: number;
     } = {}) {
-        const {page = 1, limit = 10, categoryId, status, tagId} = options;
+        const {page = 1, limit = 10, categoryId, status, type, tagId} = options;
         const offset = (page - 1) * limit;
 
         const whereClauses = [];
         if (categoryId) whereClauses.push(eq(posts.categoryId, categoryId));
         if (status) whereClauses.push(eq(posts.status, status));
+        if (type) whereClauses.push(eq(posts.type, type));
 
         // 如果有标签过滤，需要先查出关联的文章 ID
         if (tagId) {
@@ -41,6 +43,9 @@ export class PostService {
             slug: posts.slug,
             cover: posts.cover,
             status: posts.status,
+            type: posts.type,
+            wordCount: posts.wordCount,
+            readingTime: posts.readingTime,
             views: posts.views,
             createdAt: posts.createdAt,
             publishedAt: posts.publishedAt,
@@ -66,13 +71,41 @@ export class PostService {
         const totalResult = await db.select({count: count()}).from(posts).where(where);
         const total = Number(totalResult[0].count);
 
+        if (data.length === 0) {
+            return { data: [], total: 0, page, limit, totalPages: 0 };
+        }
+
+        // 批量获取这些文章的标签
+        const postIds = data.map(p => p.id);
+        const tagsData = await db.select({
+            postId: postTags.postId,
+            id: tags.id,
+            name: tags.name,
+            slug: tags.slug
+        })
+            .from(postTags)
+            .innerJoin(tags, eq(postTags.tagId, tags.id))
+            .where(inArray(postTags.postId, postIds));
+
+        // 将标签合并到文章数据中
+        const postsWithTags = data.map(post => ({
+            ...post,
+            tags: tagsData.filter(t => t.postId === post.id).map(t => ({ id: t.id, name: t.name, slug: t.slug }))
+        }));
+
         return {
-            data,
+            data: postsWithTags,
             total,
             page,
             limit,
             totalPages: Math.ceil(total / limit)
         };
+    }
+
+    private calculateStats(content: string) {
+        const wordCount = content.trim().length;
+        const readingTime = Math.ceil(wordCount / 400); // 假设平均阅读速度 400 字/分钟
+        return {wordCount, readingTime};
     }
 
     /**
@@ -134,6 +167,13 @@ export class PostService {
             postData.publishedAt = new Date();
         }
 
+        // 自动计算统计信息
+        if (postData.content) {
+            const stats = this.calculateStats(postData.content);
+            postData.wordCount = stats.wordCount;
+            postData.readingTime = stats.readingTime;
+        }
+
         const [result] = await db.insert(posts).values(postData);
         const postId = result.insertId;
 
@@ -159,6 +199,13 @@ export class PostService {
             if (current[0] && !current[0].publishedAt) {
                 postData.publishedAt = new Date();
             }
+        }
+
+        // 自动重新计算统计信息
+        if (postData.content) {
+            const stats = this.calculateStats(postData.content);
+            postData.wordCount = stats.wordCount;
+            postData.readingTime = stats.readingTime;
         }
 
         await db.update(posts).set(postData).where(eq(posts.id, id));

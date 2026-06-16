@@ -22,27 +22,20 @@ export const linkController = new Elysia({prefix: "/links"})
     })
 
     /**
-     * 创建友情链接 (仅限管理员)
+     * 创建友情链接 (允许公开申请，状态默认为 pending)
      */
-    .post("/", async ({body, set, getCurrentUser}) => {
-        const user = await getCurrentUser();
-        if (!user || user.role !== "admin") {
-            set.status = 403;
-            return {error: "Forbidden: Admin access required"};
-        }
-        return await linkService.createLink(body);
+    .post("/", async ({body}) => {
+        const linkData = {
+            ...body,
+            status: "pending" as const
+        };
+        return await linkService.createLink(linkData);
     }, {
         body: t.Object({
             name: t.String(),
             url: t.String(),
             logo: t.Optional(t.String()),
-            description: t.Optional(t.String()),
-            sort: t.Optional(t.Number()),
-            status: t.Optional(t.Enum({
-                pending: "pending",
-                approved: "approved",
-                rejected: "rejected"
-            }))
+            description: t.Optional(t.String())
         })
     })
 

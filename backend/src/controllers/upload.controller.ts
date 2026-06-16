@@ -10,7 +10,7 @@ export const uploadController = new Elysia({prefix: "/upload"})
     .guard({
         isAdmin: true
     }, (app) => app
-        .post("/image", async ({body: {file}, set}) => {
+        .post("/image", async ({body: {file, category}, set}) => {
             // 校验文件类型
             if (!uploadService.isImage(file)) {
                 set.status = 400;
@@ -25,14 +25,16 @@ export const uploadController = new Elysia({prefix: "/upload"})
 
             // 调用 Service 保存文件
             try {
-                return await uploadService.saveImage(file);
+                return await uploadService.saveImage(file, category);
             } catch (error) {
+                console.error("Upload error:", error);
                 set.status = 500;
                 return {error: "Failed to upload file"};
             }
         }, {
             body: t.Object({
-                file: t.File()
+                file: t.File(),
+                category: t.Optional(t.String())
             })
         })
     );
