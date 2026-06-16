@@ -17,7 +17,7 @@ export class AnalyticsService {
         const [pendingCommentsResult] = await db.select({count: count()}).from(comments).where(eq(comments.status, "pending"));
 
         // 计算运行天数 (从第一个用户注册开始)
-        const [earliestUser] = await db.select({createdAt: users.createdAt}).from(users).orderBy(sql`${users.createdAt} ASC`).limit(1);
+        const [earliestUser] = await db.select({createdAt: users.createdAt}).from(users).orderBy(sql`${users.createdAt}`).limit(1);
         let runningDays = 0;
         if (earliestUser && earliestUser.createdAt) {
             const diffTime = Math.abs(new Date().getTime() - new Date(earliestUser.createdAt).getTime());
