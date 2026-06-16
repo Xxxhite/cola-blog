@@ -24,6 +24,7 @@ export interface Category {
     level: number
     createdAt: string
     updatedAt: string
+    children?: Category[]
 }
 
 export interface Post {
