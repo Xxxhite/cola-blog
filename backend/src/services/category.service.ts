@@ -18,16 +18,32 @@ export class CategoryService {
     }
 
     /**
-     * 获取分类树形结构
+     * 获取分类树形结构 (包含文章计数)
      */
-    async getCategoryTree(): Promise<CategoryTreeItem[]> {
+    async getCategoryTree(): Promise<any[]> {
         const allCategories = await this.getAllCategories();
-        const categoryMap = new Map<number, CategoryTreeItem>();
-        const roots: CategoryTreeItem[] = [];
+        
+        // 批量获取所有分类的文章计数
+        const counts = await db.select({
+            categoryId: posts.categoryId,
+            count: count()
+        })
+            .from(posts)
+            .where(eq(posts.status, "published"))
+            .groupBy(posts.categoryId);
 
-        // 第一遍：创建节点映射
+        const countMap = new Map(counts.map(c => [c.categoryId, Number(c.count)]));
+
+        const categoryMap = new Map<number, any>();
+        const roots: any[] = [];
+
+        // 第一遍：创建节点映射并注入计数
         allCategories.forEach(cat => {
-            categoryMap.set(cat.id, {...cat, children: []});
+            categoryMap.set(cat.id, {
+                ...cat, 
+                postCount: countMap.get(cat.id) || 0,
+                children: []
+            });
         });
 
         // 第二遍：构建父子关系

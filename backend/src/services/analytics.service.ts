@@ -1,5 +1,5 @@
 import {db} from "../db";
-import {posts, comments, users} from "../db/schema";
+import {posts, comments, users, categories, tags} from "../db/schema";
 import {eq, count, sql, desc, gte} from "drizzle-orm";
 
 export class AnalyticsService {
@@ -10,8 +10,17 @@ export class AnalyticsService {
         const [postCountResult] = await db.select({count: count()}).from(posts);
         const [commentCountResult] = await db.select({count: count()}).from(comments);
         const [userCountResult] = await db.select({count: count()}).from(users);
-        const [viewCountResult] = await db.select({totalViews: sql<number>`sum(${posts.views})`}).from(posts);
-        const [wordCountResult] = await db.select({totalWords: sql<number>`sum(${posts.wordCount})`}).from(posts);
+        const [categoryCountResult] = await db.select({count: count()}).from(categories);
+        const [tagCountResult] = await db.select({count: count()}).from(tags);
+        
+        // Use coalesce to handle null from sum()
+        const [viewCountResult] = await db.select({
+            totalViews: sql<number>`COALESCE(sum(${posts.views}), 0)`
+        }).from(posts);
+        
+        const [wordCountResult] = await db.select({
+            totalWords: sql<number>`COALESCE(sum(${posts.wordCount}), 0)`
+        }).from(posts);
         
         // 统计待审核的评论
         const [pendingCommentsResult] = await db.select({count: count()}).from(comments).where(eq(comments.status, "pending"));
@@ -28,6 +37,8 @@ export class AnalyticsService {
             totalPosts: Number(postCountResult.count),
             totalComments: Number(commentCountResult.count),
             totalUsers: Number(userCountResult.count),
+            totalCategories: Number(categoryCountResult.count),
+            totalTags: Number(tagCountResult.count),
             totalViews: Number(viewCountResult.totalViews || 0),
             totalWords: Number(wordCountResult.totalWords || 0),
             pendingComments: Number(pendingCommentsResult.count),
