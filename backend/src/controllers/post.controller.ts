@@ -68,7 +68,13 @@ export const postController = new Elysia({prefix: "/posts"})
         /**
          * 创建文章
          */
-        .post("/", ({body}) => postService.createPost(body as any), {
+        .post("/", async ({body, getCurrentUser}) => {
+            const user = (await getCurrentUser())!;
+            return postService.createPost({
+                ...body,
+                authorId: user.id
+            } as any);
+        }, {
             body: t.Object({
                 title: t.String(),
                 slug: t.String(),
@@ -85,7 +91,6 @@ export const postController = new Elysia({prefix: "/posts"})
                 })),
                 password: t.Optional(t.String()),
                 categoryId: t.Optional(t.Number()),
-                authorId: t.Number(),
                 tagIds: t.Optional(t.Array(t.Number()))
             })
         })

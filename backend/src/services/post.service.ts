@@ -192,7 +192,16 @@ export class PostService {
      * 更新文章
      */
     async updatePost(id: number, data: Partial<PostInsert> & { tagIds?: number[] }) {
-        const {tagIds, ...postData} = data;
+        const {tagIds, ...rawPostData} = data;
+
+        // 严格过滤：只保留数据库表中存在的列
+        const validKeys = ["title", "slug", "content", "cover", "status", "type", "password", "categoryId", "authorId", "wordCount", "readingTime", "publishedAt"];
+        const postData: any = {};
+        for (const key of validKeys) {
+            if (rawPostData.hasOwnProperty(key)) {
+                postData[key] = (rawPostData as any)[key];
+            }
+        }
 
         // 处理发布时间逻辑
         if (postData.status === "published") {

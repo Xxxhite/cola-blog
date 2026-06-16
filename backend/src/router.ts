@@ -14,6 +14,8 @@ import {analyticsController} from "./controllers/analytics.controller";
 import {guestbookController} from "./controllers/guestbook.controller";
 import {authPlugin} from "./plugins/auth.plugin";
 
+import {assetController} from "./controllers/asset.controller";
+
 export const apiRouter = new Elysia({prefix: "/api"})
     .use(authPlugin)
     .use(categoryController)
@@ -23,6 +25,7 @@ export const apiRouter = new Elysia({prefix: "/api"})
     .use(authController)
     .use(userController)
     .use(uploadController)
+    .use(assetController)
     .use(searchController)
     .use(notificationController)
     .use(settingsController)
