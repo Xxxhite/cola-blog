@@ -26,22 +26,74 @@
   --breakpoint-xl: 1920px;
 }
 
-/* 导入 ZenMaruGothic-Medium 字体 */
+/*英文字体*/
+/* 1. 常规体 (Regular) */
 @font-face {
-  font-family: "ZenMaruGothic-Medium";
-  src: url("/assets/font/ZenMaruGothic-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-display: swap;
+    font-family: 'Iosevka QiuSui';
+    src: url('/assets/font/IosevkaQiuSui-Regular.ttf') format('truetype');
+    font-weight: normal; /* 或者写 400 */
+    font-style: normal;
 }
 
-/* 导入 萝莉体 第二版 字体 */
+/* 2. 斜体 (Italic) */
 @font-face {
-  font-family: "萝莉体 第二版";
-  src: url("/assets/font/loli.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+    font-family: 'Iosevka QiuSui';
+    src: url('/assets/font/IosevkaQiuSui-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
 }
+
+/* 3. 中等粗体 (Medium) */
+@font-face {
+    font-family: 'Iosevka QiuSui';
+    src: url('/assets/font/IosevkaQiuSui-Medium.ttf') format('truetype');
+    /* 因为我们只留了 Medium，这里可以设为 500，
+       如果你想让它作为网页默认的 bold (粗体) 触发，可以改成 bold 或 700 */
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* 4. 中等粗斜体 (Medium Italic) */
+@font-face {
+    font-family: 'Iosevka QiuSui';
+    src: url('/assets/font/IosevkaQiuSui-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+/*中文字体*/
+/* 1. 常规体 (Regular) */
+@font-face {
+    font-family: 'Sarasa Mono SC';
+    src: url('/assets/font/SarasaMonoSC-Regular.ttf') format('truetype');
+    font-weight: normal; /* 或 400 */
+    font-style: normal;
+}
+
+/* 2. 斜体 (Italic) */
+@font-face {
+    font-family: 'Sarasa Mono SC';
+    src: url('/assets/font/SarasaMonoSC-Italic.ttf') format('truetype');
+    font-weight: normal; /* 或 400 */
+    font-style: italic;
+}
+
+/* 3. 粗体 (Bold) */
+@font-face {
+    font-family: 'Sarasa Mono SC';
+    src: url('/assets/font/SarasaMonoSC-Bold.ttf') format('truetype');
+    font-weight: bold; /* 或 700 */
+    font-style: normal;
+}
+
+/* 4. 粗斜体 (Bold Italic) */
+@font-face {
+    font-family: 'Sarasa Mono SC';
+    src: url('/assets/font/SarasaMonoSC-BoldItalic.ttf') format('truetype');
+    font-weight: bold; /* 或 700 */
+    font-style: italic;
+}
+
 
 /* 确保平滑滚动，并稳定滚动条宽度以避免布局左右抖动 */
 html {
