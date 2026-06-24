@@ -1,6 +1,3 @@
-[submodule "content"]
-	path = content
-	url = https://github.com/Xxxhite/cola-blog-content.git
 [submodule "frontend/content"]
 	path = frontend/content
 	url = https://github.com/Xxxhite/cola-blog-content.git
