@@ -4,7 +4,7 @@ export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	enable: true,
 	src: { // 注意这里需要跟 /src/config/siteConfig.ts 同步修改
 		desktop: [
-			"/assets/desktop-banner/3.webp",
+			"/assets/desktop-banner/1.jpg",
 		],
 		mobile: [
 

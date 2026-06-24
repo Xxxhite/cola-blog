@@ -40,7 +40,7 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
         // 顶栏标题文本
         text: "Cola Blog",
         // 顶栏标题图标路径，默认使用 public/assets/home/home.webp
-        icon: "assets/home/home.webp",
+        icon: "assets/home/home.jpg",
         // 网站Logo图片路径
         logo: "assets/home/default-logo.webp", // TODO: 有时间去搞个自定义logo去
     },
@@ -58,7 +58,7 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
 
     bilibili: {
         vmid: "349255027", // 在此处设置你的Bilibili用户ID (uid)，例如 "1129280784"
-        fetchOnDev: false, // 是否在开发环境下获取 Bilibili 数据（默认 false）
+        fetchOnDev: true, // 是否在开发环境下获取 Bilibili 数据（默认 false）
         coverMirror: "", // 封面图片镜像源（可选，如果需要使用镜像源，例如 "https://images.weserv.nl/?url="）
         useWebp: true, // 是否使用WebP格式（默认 true）
 
@@ -113,7 +113,7 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
         // 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
         src: { // 注意这里需要跟 /src/config/backgroundWallpaper.ts 同步修改
             desktop: [
-                "/assets/desktop-banner/3.webp",
+                "/assets/desktop-banner/1.jpg",
             ], // 桌面横幅图片
             mobile: [
                 // TODO: 搞点移动端的背景图片
