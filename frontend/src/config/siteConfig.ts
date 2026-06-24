@@ -192,36 +192,36 @@ export const siteConfig: SiteConfig = {
         // }
     ],
 
-    // 字体配置
-    font: {
-        // 注意：自定义字体需要在 src/styles/main.css 中引入字体文件
-        // 注意：字体子集优化功能目前仅支持 TTF 格式字体,开启后需要在生产环境才能看到效果,在Dev环境下显示的是浏览器默认字体!
-        asciiFont: {
-            // 英文字体 - 优先级最高
-            // 指定为英文字体则无论字体包含多大范围，都只会保留 ASCII 字符子集
-            fontFamily: "Iosevka QiuSui",
-            fontWeight: "400",
-            localFonts: [
-                "IosevkaQiuSui-Regular.ttf",
-                "IosevkaQiuSui-Italic.ttf",
-                "IosevkaQiuSui-Medium.ttf",
-                "IosevkaQiuSui-MediumItalic.ttf"
-            ],
-            enableCompress: true, // 启用字体子集优化，减少字体文件大小
-        },
-        cjkFont: {
-            // 中日韩字体 - 作为回退字体
-            fontFamily: "Sarasa Mono SC",
-            fontWeight: "400",
-            localFonts: [
-                "SarasaMonoSC-Regular.ttf",
-                "SarasaMonoSC-Italic.ttf",
-                "SarasaMonoSC-Medium.ttf",
-                "SarasaMonoSC-MediumItalic.ttf"
-            ],
-            enableCompress: true, // 启用字体子集优化，减少字体文件大小
-        },
-    },
+	// 字体配置
+	font: {
+		// 注意：自定义字体需要在 src/styles/main.css 中引入字体文件
+		// 注意：字体子集优化功能目前仅支持 TTF 格式字体,开启后需要在生产环境才能看到效果,在Dev环境下显示的是浏览器默认字体!
+		asciiFont: {
+			// 英文字体 - 优先级最高
+			// 指定为英文字体则无论字体包含多大范围，都只会保留 ASCII 字符子集
+			fontFamily: "Iosevka QiuSui",
+			fontWeight: "400",
+			localFonts: [
+				"IosevkaQiuSui-Regular.ttf",
+				"IosevkaQiuSui-Italic.ttf",
+				"IosevkaQiuSui-Medium.ttf",
+				"IosevkaQiuSui-MediumItalic.ttf"
+			],
+			enableCompress: true, // 启用字体子集优化，减少字体文件大小
+		},
+		cjkFont: {
+			// 中日韩字体 - 作为回退字体
+			fontFamily: "Sarasa Mono SC",
+			fontWeight: "400",
+			localFonts: [
+				"SarasaMonoSC-Regular.ttf",
+				"SarasaMonoSC-Italic.ttf",
+				"SarasaMonoSC-Bold.ttf",
+				"SarasaMonoSC-BoldItalic.ttf"
+			],
+			enableCompress: true, // 启用字体子集优化，减少字体文件大小
+		},
+	},
     showLastModified: true, // 控制"上次编辑"卡片显示的开关
     pageProgressBar: {
         enable: true, // 启用页面顶部进度条
