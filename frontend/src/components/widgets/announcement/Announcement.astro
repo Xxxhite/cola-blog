@@ -27,8 +27,8 @@ const style = Astro.props.style;
 		<!-- 公告栏内容 -->
 		<div
 			class="text-neutral-600 dark:text-neutral-300 leading-relaxed mb-3"
+            set:html={config.content}
 		>
-			{config.content}
 		</div>
 
 		<!-- 可选链接和关闭按钮 -->
