@@ -20,9 +20,9 @@ export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	blur: 1,
 	switchable: true,
 	overlay: {
-		opacity: 0.8, // 壁纸不透明度，0-1
+		opacity: 0.9, // 壁纸不透明度，0-1
 		blur: 1, // 背景模糊半径（px）
-		cardOpacity: 0.8, // 卡片不透明度，0-1
+		cardOpacity: 0.9, // 卡片不透明度，0-1
 		switchable: {
 			opacity: true,
 			blur: true,
