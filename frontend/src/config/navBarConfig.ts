@@ -187,6 +187,11 @@ export const navBarConfig: NavBarConfig = {
 					icon: "material-symbols:devices",
 					external: false, // 内部链接，当前页导航
 				},
+                {
+                    name: "Timeline",
+                    url: "/timeline/",
+                    icon: "material-symbols:timeline",
+                },
 			],
 		},
 
@@ -224,11 +229,6 @@ export const navBarConfig: NavBarConfig = {
 					name: "Skills",
 					url: "/skills/",
 					icon: "material-symbols:psychology",
-				},
-				{
-					name: "Timeline",
-					url: "/timeline/",
-					icon: "material-symbols:timeline",
 				},
 			],
 		},

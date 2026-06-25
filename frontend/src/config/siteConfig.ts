@@ -8,9 +8,9 @@ const SITE_TIMEZONE = 8; //设置你的网站时区 from -12 to 12 default in UT
 
 export const siteConfig: SiteConfig = { // TODO: 反正todo
     title: "一罐可乐",
-    subtitle: "One demo website",
+    subtitle: "我没想好写啥",
     siteURL: "https://mizuki.mysqil.com/", // 请替换为你的站点URL，以斜杠结尾
-    siteStartDate: "2026-06-01", // 站点开始运行日期，用于站点统计组件计算运行天数
+    siteStartDate: "2026-05-28", // 站点开始运行日期，用于站点统计组件计算运行天数
 
     timeZone: SITE_TIMEZONE,
 
@@ -23,11 +23,11 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
 
     // 特色页面开关配置（关闭未使用的页面有助于提升 SEO，关闭后请记得在 navbarConfig 中移除对应链接）
     featurePages: {
-        anime: true, // 番剧页面开关
+        anime: false, // 番剧页面开关
         diary: true, // 日记页面开关
         friends: true, // 友链页面开关
-        projects: true, // 项目页面开关
-        skills: true, // 技能页面开关
+        projects: false, // 项目页面开关
+        skills: false, // 技能页面开关
         timeline: true, // 时间线页面开关
         albums: true, // 相册页面开关
         devices: false, // 设备页面开关
@@ -40,9 +40,9 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
         // 顶栏标题文本
         text: "Cola Blog",
         // 顶栏标题图标路径，默认使用 public/assets/home/home.webp
-        icon: "assets/home/home.jpg",
+        icon: "assets/home/home.png",
         // 网站Logo图片路径
-        logo: "assets/home/default-logo.webp", // TODO: 有时间去搞个自定义logo去
+        logo: "assets/home/default-logo.png", // TODO: 有时间去搞个自定义logo去
     },
 
     // 页面自动缩放配置
@@ -58,7 +58,7 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
 
     bilibili: {
         vmid: "349255027", // 在此处设置你的Bilibili用户ID (uid)，例如 "1129280784"
-        fetchOnDev: true, // 是否在开发环境下获取 Bilibili 数据（默认 false）
+        fetchOnDev: false, // 是否在开发环境下获取 Bilibili 数据（默认 false）
         coverMirror: "", // 封面图片镜像源（可选，如果需要使用镜像源，例如 "https://images.weserv.nl/?url="）
         useWebp: true, // 是否使用WebP格式（默认 true）
 
