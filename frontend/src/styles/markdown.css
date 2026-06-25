@@ -216,31 +216,32 @@
   --_spoiler-mask: color-mix(in oklch, var(--primary) 55%, white 45%);
 }
 
+/* --- 控制文章整体字体大小 --- */
 /* 1. 控制文章正文、列表、表格、引用的字体大小 */
 .custom-md p,
 .custom-md li,
 .custom-md blockquote,
 .custom-md table {
-    font-size: 13px !important;
+    font-size: 14px !important;
     line-height: 1.4 !important;
 }
 
 /* 2. 控制文章内部各个层级标题的大小 */
 .custom-md h1 {
-    font-size: 21px !important;
+    font-size: 22px !important;
 }
 
 .custom-md h2 {
-    font-size: 19px !important;
+    font-size: 20px !important;
 }
 
 .custom-md h3 {
-    font-size: 17px !important;
+    font-size: 18px !important;
 }
 
 .custom-md h4,
 .custom-md h5,
 .custom-md h6 {
-    font-size: 15px !important;
+    font-size: 16px !important;
 }
 
