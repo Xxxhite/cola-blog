@@ -201,25 +201,25 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
 		asciiFont: {
 			// 英文字体 - 优先级最高
 			// 指定为英文字体则无论字体包含多大范围，都只会保留 ASCII 字符子集
-			fontFamily: "Iosevka QiuSui",
-			fontWeight: "400",
+			fontFamily: "Sarasa Gothic SC",
+			fontWeight: "500",
 			localFonts: [
-				"IosevkaQiuSui-Regular.ttf",
-				"IosevkaQiuSui-Italic.ttf",
-				"IosevkaQiuSui-Medium.ttf",
-				"IosevkaQiuSui-MediumItalic.ttf"
+                "SarasaGothicSC-Regular",
+                "SarasaGothicSC-Italic",
+                "SarasaGothicSC-Bold",
+                "SarasaGothicSC-BoldItalic"
 			],
 			enableCompress: true, // 启用字体子集优化，减少字体文件大小
 		},
 		cjkFont: {
 			// 中日韩字体 - 作为回退字体
-			fontFamily: "Sarasa Mono SC",
-			fontWeight: "400",
+			fontFamily: "Sarasa Gothic J",
+			fontWeight: "500",
 			localFonts: [
-				"SarasaMonoSC-Regular.ttf",
-				"SarasaMonoSC-Italic.ttf",
-				"SarasaMonoSC-Bold.ttf",
-				"SarasaMonoSC-BoldItalic.ttf"
+                "SarasaGothicJ-Regular",
+                "SarasaGothicSC-Italic",
+                "SarasaGothicSC-Bold",
+                "SarasaGothicSC-BoldItalic"
 			],
 			enableCompress: true, // 启用字体子集优化，减少字体文件大小
 		},
