@@ -26,17 +26,17 @@
     --breakpoint-xl: 1920px;
 
     /*尝试修改全局字体*/
-    --text-sm: 16px;
-    --text-sm--line-height: 24px;
+    /*--text-sm: 16px;*/
+    /*--text-sm--line-height: 24px;*/
 
-    --text-base: 18px;
-    --text-base--line-height: 28px;
+    /*--text-base: 18px;*/
+    /*--text-base--line-height: 28px;*/
 
-    --text-lg: 20px;
-    --text-lg--line-height: 28px;
+    /*--text-lg: 20px;*/
+    /*--text-lg--line-height: 28px;*/
 
-    --text-xl: 24px;
-    --text-xl--line-height: 32px;
+    /*--text-xl: 24px;*/
+    /*--text-xl--line-height: 32px;*/
 }
 
 /*尝试修改字体清晰度*/
