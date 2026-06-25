@@ -201,7 +201,7 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
 		asciiFont: {
 			// 英文字体 - 优先级最高
 			// 指定为英文字体则无论字体包含多大范围，都只会保留 ASCII 字符子集
-			fontFamily: "Lora",
+			fontFamily: "Lora", // 注意字符串里不能有空格
 			fontWeight: "400",
 			localFonts: [
                 "Lora-Regular",
@@ -213,7 +213,7 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
 		},
 		cjkFont: {
 			// 中日韩字体 - 作为回退字体
-			fontFamily: "NotoSerifSC,ShipporiMincho",
+			fontFamily: "NotoSerifSC,ShipporiMincho", // 注意字符串里不能有空格
 			fontWeight: "500",
 			localFonts: [
                 "NotoSerifSC-VF",
