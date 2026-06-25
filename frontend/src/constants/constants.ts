@@ -1,8 +1,9 @@
 export const PAGE_SIZE = 8;
 
-export const LIGHT_MODE = "light",
+export const
+    LIGHT_MODE = "light",
 	DARK_MODE = "dark";
-export const DEFAULT_THEME = DARK_MODE;
+export const DEFAULT_THEME = LIGHT_MODE;
 
 // Banner height unit: vh
 export const BANNER_HEIGHT = 35;
@@ -14,7 +15,7 @@ export const BANNER_HEIGHT_HOME = BANNER_HEIGHT + BANNER_HEIGHT_EXTEND;
 export const MAIN_PANEL_OVERLAPS_BANNER_HEIGHT = 3.5;
 
 // Page width: rem
-export const PAGE_WIDTH = 120;
+export const PAGE_WIDTH = 125;
 
 // Category constants
 export const UNCATEGORIZED = "uncategorized";
