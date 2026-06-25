@@ -81,7 +81,7 @@ export async function compressFonts() {
 						.use(
 							Fontmin.glyph({
 								text,
-								hinting: false,
+								hinting: true,
 							}),
 						)
 						.use(
