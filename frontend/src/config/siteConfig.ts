@@ -204,10 +204,10 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
 			fontFamily: "Lora", // 注意字符串里不能有空格
 			fontWeight: "400",
 			localFonts: [
-                "Lora-Regular",
-                "Lora-Italic",
-                "Lora-Bold",
-                "Lora-BoldItalic",
+                "Lora-Regular.ttf",
+                "Lora-Italic.ttf",
+                "Lora-Bold.ttf",
+                "Lora-BoldItalic.ttf",
 			],
 			enableCompress: true, // 启用字体子集优化，减少字体文件大小
 		},
@@ -216,9 +216,9 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
 			fontFamily: "NotoSerifSC,ShipporiMincho", // 注意字符串里不能有空格
 			fontWeight: "500",
 			localFonts: [
-                "NotoSerifSC-VF",
-                "ShipporiMincho-Regular",
-                "ShipporiMincho-Bold",
+                "NotoSerifSC-VF.ttf",
+                "ShipporiMincho-Regular.ttf",
+                "ShipporiMincho-Bold.ttf",
 			],
 			enableCompress: true, // 启用字体子集优化，减少字体文件大小
 		},
