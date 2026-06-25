@@ -213,10 +213,12 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
 		},
 		cjkFont: {
 			// 中日韩字体 - 作为回退字体
-			fontFamily: "Noto Serif SC",
+			fontFamily: "NotoSerifSC,ShipporiMincho",
 			fontWeight: "500",
 			localFonts: [
                 "NotoSerifSC-VF",
+                "ShipporiMincho-Regular",
+                "ShipporiMincho-Bold",
 			],
 			enableCompress: true, // 启用字体子集优化，减少字体文件大小
 		},
