@@ -42,7 +42,7 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
         // 顶栏标题图标路径，默认使用 public/assets/home/home.webp
         icon: "assets/home/home.png",
         // 网站Logo图片路径
-        logo: "assets/home/default-logo.png", // TODO: 有时间去搞个自定义logo去
+        logo: "assets/home/default-logo.png",
     },
 
     // 页面自动缩放配置
