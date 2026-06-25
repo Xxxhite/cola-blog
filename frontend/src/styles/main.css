@@ -63,7 +63,7 @@
 /* --- 中文字体 --- */
 /*Noto Serif SC*/
 @font-face {
-    font-family: "NotoSerifSC";
+    font-family: "Noto Serif SC";
     src: url("/assets/font/NotoSerifSC-VF.ttf") format("truetype");
     font-weight: 100 900;
     font-style: normal;
@@ -72,14 +72,14 @@
 /*--- 日文字体 ---*/
 /*Shippori Mincho*/
 @font-face {
-    font-family: "ShipporiMincho";
+    font-family: "Shippori Mincho";
     src: url("/assets/font/ShipporiMincho-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: "ShipporiMincho";
+    font-family: "Shippori Mincho";
     src: url("/assets/font/ShipporiMincho-Bold.ttf") format("truetype");
     font-weight: bold;
     font-style: normal;
