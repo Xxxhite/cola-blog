@@ -129,7 +129,7 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
         },
 
         waves: {
-            enable: false, // 是否启用水波纹动画效果
+            enable: true, // 是否启用水波纹动画效果
             performanceMode: false, // 是否启用性能模式
             mobileDisable: false, // 是否在移动端禁用此效果
             switchable: true,
