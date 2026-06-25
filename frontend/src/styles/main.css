@@ -27,66 +27,50 @@
 }
 
 /* --- 英文字体 ---*/
+/*Lora*/
+@font-face {
+    font-family: "Lora";
+    src: url("/assets/font/Lora-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lora";
+    src: url("/assets/font/Lora-Italic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lora";
+    src: url("/assets/font/Lora-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lora";
+    src: url("/assets/font/Lora-BoldItalic.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
 
 /* --- 中文字体 --- */
-/*  Sarasa Gothic SC*/
+/*Noto Serif SC*/
 @font-face {
-    font-family: 'Sarasa Gothic SC';
-    src: url('/assets/font/SarasaGothicSC-Regular.ttf') format('truetype');
-    font-weight: normal;
+    font-family: "Noto Serif SC";
+    src: url("/assets/font/NotoSerifSC-VF.ttf") format("truetype");
+    font-weight: 100 900;
     font-style: normal;
+    font-display: swap;
 }
-
-@font-face {
-    font-family: 'Sarasa Gothic SC';
-    src: url('/assets/font/SarasaGothicSC-Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Sarasa Gothic SC';
-    src: url('/assets/font/SarasaGothicSC-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Sarasa Gothic SC';
-    src: url('/assets/font/SarasaGothicSC-BoldItalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-}
-
 /*--- 日文字体 ---*/
-/*Sarasa Gothic J*/
-@font-face {
-    font-family: 'Sarasa Gothic J';
-    src: url('/assets/font/SarasaGothicJ-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 
-@font-face {
-    font-family: 'Sarasa Gothic J';
-    src: url('/assets/font/SarasaGothicJ-Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Sarasa Gothic J';
-    src: url('/assets/font/SarasaGothicJ-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Sarasa Gothic J';
-    src: url('/assets/font/SarasaGothicJ-BoldItalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-}
 
 /* 确保平滑滚动，并稳定滚动条宽度以避免布局左右抖动 */
 html {
