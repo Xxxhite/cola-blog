@@ -18,7 +18,7 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
 
     themeColor: {
         hue: 310, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
-        fixed: false    , // 对访问者隐藏主题色选择器
+        fixed: false, // 对访问者隐藏主题色选择器
     },
 
     // 特色页面开关配置（关闭未使用的页面有助于提升 SEO，关闭后请记得在 navbarConfig 中移除对应链接）
@@ -40,9 +40,9 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
         // 顶栏标题文本
         text: "Cola Blog",
         // 顶栏标题图标路径，默认使用 public/assets/home/home.webp
-        icon: "assets/home/home.png",
+        icon: "assets/home/home.webp",
         // 网站Logo图片路径
-        logo: "assets/home/default-logo.png",
+        logo: "assets/home/default-logo.webp",
     },
 
     // 页面自动缩放配置
