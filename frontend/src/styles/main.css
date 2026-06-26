@@ -85,7 +85,7 @@ body {
 @font-face {
     font-family: "Noto Serif SC";
     src: url("/assets/font/NotoSerifSC-VF.ttf") format("truetype");
-    font-weight: 100 900;
+    font-weight: 400 700;
     font-style: normal;
     font-display: swap;
 }
