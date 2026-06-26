@@ -24,6 +24,9 @@ jobs:
         with:
           submodules: true  # 支持 Git Submodule 模式
           token: ${{ secrets.GITHUB_TOKEN }}  # 自动访问同账号下的私有仓库
+          
+      - name: Update submodules to latest
+        run: git submodule update --remote --merge
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
