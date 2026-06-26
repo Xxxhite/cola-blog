@@ -139,31 +139,11 @@ for (const mapping of contentMappings) {
 
 console.log("\n内容同步完成\n");
 try {
-	// 1. 获取 content 分支名
-	const branch = execSync("git rev-parse --abbrev-ref HEAD", {
-		cwd: CONTENT_DIR,
-	})
-		.toString()
-		.trim();
-
-	// 2. 获取 content commit hash（短）
-	const hash = execSync("git rev-parse --short HEAD", {
-		cwd: CONTENT_DIR,
-	})
-		.toString()
-		.trim();
-
-	// 3. 提交主仓库
-	execSync("git add .", { cwd: rootDir });
-
-	execSync(
-		`git commit -m "chore(content): sync ${branch}@${hash}"`,
-		{ cwd: rootDir },
-	);
-
-	console.log(`已提交内容更新（${branch}@${hash}）`);
-} catch {
-	console.log("没有变化，跳过提交");
+	const branch = execSync("git rev-parse --abbrev-ref HEAD", { cwd: CONTENT_DIR }).toString().trim();
+	const hash = execSync("git rev-parse --short HEAD", { cwd: CONTENT_DIR }).toString().trim();
+	console.log(`内容已成功同步（${branch}@${hash}）`);
+} catch (err) {
+	console.log("获取分支信息失败：" + err.message);
 }
 
 // 递归复制函数
