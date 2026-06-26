@@ -33,13 +33,14 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
+          version: 9
           run_install: false
           
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: cd frontend && pnpm install --no-frozen-lockfile
       
       - name: Build site
-        run: pnpm run build
+        run: cd frontend && pnpm run build
         env:
           # 如果需要启用内容分离,取消以下注释并配置
           # ENABLE_CONTENT_SYNC: true
@@ -50,5 +51,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: pages # 部署到pages分支
-          folder: dist # Astro默认构建输出目录
+          folder: frontend/dist # Astro默认构建输出目录
           clean: true # 清理目标分支中的旧文件
