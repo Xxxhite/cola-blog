@@ -1,4 +1,5 @@
 export const PAGE_SIZE = 14;
+export const DIARY_MAX_COUNT = 50;
 
 export const
     LIGHT_MODE = "light",

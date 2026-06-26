@@ -6,6 +6,7 @@ import { Icon } from "astro-icon/components";
 
 import { siteConfig } from "../config";
 import { getAllTags, getDiaryList } from "../data/diary";
+import { DIARY_MAX_COUNT } from "../constants/constants";
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 
@@ -13,7 +14,7 @@ if (!siteConfig.featurePages.diary) {
 	return Astro.redirect("/404/");
 }
 
-const moments = getDiaryList();
+const moments = getDiaryList(DIARY_MAX_COUNT);
 const allTags = getAllTags();
 
 const filterTabs = [
@@ -100,7 +101,7 @@ const subtitle = i18n(I18nKey.diarySubtitle);
 					)
 				}
 
-				<div id="diary-list" class="space-y-4" data-memos-api={diaryApiUrl || ""} data-minutes-ago={minutesAgo} data-hours-ago={hoursAgo} data-days-ago={daysAgo}>
+				<div id="diary-list" class="space-y-4" data-memos-api={diaryApiUrl || ""} data-minutes-ago={minutesAgo} data-hours-ago={hoursAgo} data-days-ago={daysAgo} data-max-count={DIARY_MAX_COUNT}>
 					{
 						moments.map((moment, index) => (
 							<MomentCard
@@ -412,9 +413,15 @@ const subtitle = i18n(I18nKey.diarySubtitle);
 								const memos = data.memos || [];
 								if (memos.length === 0) {return;}
 
-								const moments = transformMemosToDiary(memos);
+								let moments = transformMemosToDiary(memos);
 								const container = document.getElementById("diary-list");
 								if (!container) {return;}
+
+								const maxCountStr = container.dataset.maxCount;
+								const maxCount = maxCountStr ? parseInt(maxCountStr, 10) : 0;
+								if (maxCount > 0) {
+									moments = moments.slice(0, maxCount);
+								}
 
 								container.innerHTML = renderMomentCards(moments);
 								updateCountDisplay(moments.length);
