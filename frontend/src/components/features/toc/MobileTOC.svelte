@@ -286,7 +286,7 @@ const getActivePadding = (level: number): string => {
 		{/if}
 	{:else if tocItems.length === 0}
 		<div class="text-center py-8 text-black/50 dark:text-white/50">
-			<p>{i18n(I18nKey.tocEmpty)}</p>
+			<p>{@html i18n(I18nKey.tocEmpty)}</p>
 		</div>
 	{:else}
 		<div class="toc-content">
