@@ -52,7 +52,8 @@ export const ja: Translation = {
 	[Key.darkMode]: "ダーク",
 	[Key.systemMode]: "システム",
 
-	[Key.more]: "詳細を表示",
+	[Key.more]: "展開する",
+    [Key.less]: "折りたたむ",
 
 	[Key.author]: "著者",
 	[Key.publishedAt]: "公開日",

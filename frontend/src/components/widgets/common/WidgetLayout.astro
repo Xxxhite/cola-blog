@@ -45,17 +45,36 @@ const className = Astro.props.class;
 	</div>
 	{
 		isCollapsed && (
-			<div class="expand-btn px-4 -mb-2">
-				<button class="btn-plain rounded-lg w-full h-9">
-					<div class="text-[var(--primary)] flex items-center justify-center gap-2 -translate-x-2">
-						<Icon
-							name="material-symbols:more-horiz"
-							class="text-[1.75rem]"
-						/>{" "}
-						{i18n(I18nKey.more)}
-					</div>
-				</button>
-			</div>
+			<>
+				{/* 
+				<div class="expand-btn px-4 -mb-2">
+					<button class="btn-plain rounded-lg w-full h-9">
+						<div class="text-[var(--primary)] flex items-center justify-center gap-2 -translate-x-2">
+							<Icon
+								name="material-symbols:more-horiz"
+								class="text-[1.75rem]"
+							/>{" "}
+							{i18n(I18nKey.more)}
+						</div>
+					</button>
+				</div>
+				*/}
+				<div class="expand-btn px-4 mt-2">
+					<button class="btn-plain rounded-lg w-full h-9" data-text-more={i18n(I18nKey.more)} data-text-less={i18n(I18nKey.less)}>
+						<div class="text-[var(--primary)] flex items-center justify-center gap-2 -translate-x-2">
+							<Icon
+								name="material-symbols:more-horiz"
+								class="text-[1.75rem] icon-more"
+							/>
+							<Icon
+								name="material-symbols:expand-less"
+								class="text-[1.75rem] icon-less hidden"
+							/>
+							<span class="btn-text">{i18n(I18nKey.more)}</span>
+						</div>
+					</button>
+				</div>
+			</>
 		)
 	}
 </widget-layout>
@@ -76,11 +95,41 @@ const className = Astro.props.class;
 			}
 
 			const id = this.dataset.id;
-			const btn = this.querySelector(".expand-btn");
+			const btnContainer = this.querySelector(".expand-btn");
+			const btn = btnContainer!.querySelector("button");
 			const wrapper = this.querySelector(`#${id}`);
-			btn!.addEventListener("click", () => {
+
+			/* 原有逻辑保留：
+			const oldBtn = this.querySelector(".expand-btn");
+			oldBtn!.addEventListener("click", () => {
 				wrapper!.classList.remove("collapsed");
-				btn!.classList.add("hidden");
+				oldBtn!.classList.add("hidden");
+			});
+			*/
+
+			const textSpan = btn!.querySelector(".btn-text");
+			const iconMore = btn!.querySelector(".icon-more");
+			const iconLess = btn!.querySelector(".icon-less");
+			
+			const textMore = btn!.dataset.textMore;
+			const textLess = btn!.dataset.textLess;
+
+			btn!.addEventListener("click", () => {
+				const isCurrentlyCollapsed = wrapper!.classList.contains("collapsed");
+				
+				if (isCurrentlyCollapsed) {
+					// 展开
+					wrapper!.classList.remove("collapsed");
+					if (textSpan) textSpan.textContent = textLess || "收起";
+					iconMore?.classList.add("hidden");
+					iconLess?.classList.remove("hidden");
+				} else {
+					// 收起
+					wrapper!.classList.add("collapsed");
+					if (textSpan) textSpan.textContent = textMore || "更多";
+					iconLess?.classList.add("hidden");
+					iconMore?.classList.remove("hidden");
+				}
 			});
 		}
 	}
