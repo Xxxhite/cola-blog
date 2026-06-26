@@ -216,7 +216,8 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
 			fontFamily: "Noto Serif SC, Shippori Mincho",
 			fontWeight: "500",
 			localFonts: [
-                "NotoSerifSC-VF.ttf",
+                "NotoSerifSC-Regular.ttf",
+                "NotoSerifSC-Bold.ttf",
                 "ShipporiMincho-Regular.ttf",
                 "ShipporiMincho-Bold.ttf",
 			],

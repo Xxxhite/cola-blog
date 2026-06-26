@@ -84,8 +84,16 @@ body {
 /*Noto Serif SC*/
 @font-face {
     font-family: "Noto Serif SC";
-    src: url("/assets/font/NotoSerifSC-VF.ttf") format("truetype");
-    font-weight: 400 700;
+    src: url("/assets/font/NotoSerifSC-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Noto Serif SC";
+    src: url("/assets/font/NotoSerifSC-Bold.ttf") format("truetype");
+    font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
