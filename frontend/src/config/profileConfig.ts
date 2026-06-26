@@ -25,15 +25,11 @@ export const profileConfig: ProfileConfig = {
             icon: "mdi:git",
             url: "https://gitee.com/xxxhite",
         },
-		// {
-		// 	name: "Codeberg",
-		// 	icon: "simple-icons:codeberg",
-		// 	url: "https://codeberg.org",
-		// },
-		// {
-		// 	name: "Discord",
-		// 	icon: "fa7-brands:discord",
-		// 	url: "https://discord.gg/MqW6TcQtVM",
-		// },
+        {
+            name: "QQ",
+            icon: "fa7-brands:qq",
+            url: "https://qm.qq.com/q/WYJ06V0OI2",
+        },
+
 	],
 };
