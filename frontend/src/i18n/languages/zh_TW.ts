@@ -19,7 +19,7 @@ export const zh_TW: Translation = {
 	[Key.recentPosts]: "最新文章",
 	[Key.postList]: "文章列表",
 	[Key.tableOfContents]: "目錄",
-	[Key.tocEmpty]: "當前頁面沒有目錄",
+	[Key.tocEmpty]: "這裡空空的，<br>點開一篇文章看看？",
 
 	// 公告欄
 	[Key.announcement]: "公告",
@@ -27,7 +27,7 @@ export const zh_TW: Translation = {
 
 	[Key.comments]: "評論",
 	[Key.friends]: "友鏈",
-	[Key.friendsSubtitle]: "發現更多優秀網站",
+	[Key.friendsSubtitle]: "這裡有我的朋友們，或是一些有用的地方",
 	[Key.friendsSearchPlaceholder]: "搜索友鏈名稱或描述...",
 	[Key.friendsFilterAll]: "全部",
 	[Key.friendsNoResults]: "未找到匹配的友鏈",
@@ -68,7 +68,7 @@ export const zh_TW: Translation = {
 
 	// 番劇頁面
 	[Key.animeTitle]: "我的追番記錄",
-	[Key.animeSubtitle]: "記錄我的二次元之旅",
+	[Key.animeSubtitle]: "把時間浪費在美好的虛構中",
 	[Key.animeStatusWatching]: "在看",
 	[Key.animeStatusCompleted]: "看過",
 	[Key.animeStatusPlanned]: "想看",
@@ -87,11 +87,11 @@ export const zh_TW: Translation = {
 		"請在 src/config/siteConfig.ts 檔案中設定您的 Bangumi userId",
 
 	// 短文頁面
-	[Key.diarySubtitle]: "隨時隨地，分享生活",
+	[Key.diarySubtitle]: "隻言片語，記錄日常",
 	[Key.diaryNoResults]: "沒有匹配的日記",
 	[Key.diaryCount]: "條日記",
 
-	[Key.diaryTips]: "只展示最近30條日記",
+	[Key.diaryTips]: "能讓你看到的，就暫時到這裡了。",
 	[Key.diaryMinutesAgo]: "分鐘前",
 	[Key.diaryHoursAgo]: "小時前",
 	[Key.diaryDaysAgo]: "天前",
@@ -128,7 +128,7 @@ export const zh_TW: Translation = {
 
 	// 相冊頁面
 	[Key.albums]: "相冊",
-	[Key.albumsSubtitle]: "記錄生活中的美好瞬間",
+	[Key.albumsSubtitle]: "記錄一些珍貴的時間碎片",
 	[Key.albumsEmpty]: "暫無內容",
 	[Key.albumsEmptyDesc]: "還沒有創建任何相冊，快去添加一些美好的回憶吧！",
 	[Key.albumsBackToList]: "返回相冊",
@@ -232,7 +232,7 @@ export const zh_TW: Translation = {
 
 	// 時間線頁面
 	[Key.timeline]: "時間線",
-	[Key.timelineSubtitle]: "我的成長歷程和重要里程碑",
+	[Key.timelineSubtitle]: "我給這個世界留下的痕跡",
 	[Key.timelineEducation]: "教育經歷",
 	[Key.timelineWork]: "工作經歷",
 	[Key.timelineProject]: "專案經歷",
@@ -257,7 +257,7 @@ export const zh_TW: Translation = {
 	// 密碼保護
 	[Key.passwordProtected]: "密碼保護",
 	[Key.passwordProtectedTitle]: "此內容受密碼保護",
-	[Key.passwordProtectedDescription]: "請輸入密碼以查看受保護的內容",
+	[Key.passwordProtectedDescription]: "總有一些內容值得被珍藏",
 	[Key.postEncrypted]: "已加密",
 	[Key.postEncryptedMessage]: "該文章已加密",
 	[Key.passwordPlaceholder]: "請輸入密碼",
@@ -376,6 +376,6 @@ export const zh_TW: Translation = {
 	// 相关文章与随机文章
 	[Key.relatedPosts]: "相關文章",
 	[Key.randomPosts]: "隨機文章",
-	[Key.smartRecommend]: "智能推薦",
-	[Key.randomRecommend]: "隨機推薦",
+	[Key.smartRecommend]: "猜你想看",
+	[Key.randomRecommend]: "隨便看看",
 };

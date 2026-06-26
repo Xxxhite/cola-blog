@@ -19,7 +19,7 @@ export const ja: Translation = {
 	[Key.recentPosts]: "最近の投稿",
 	[Key.postList]: "投稿の一覧",
 	[Key.tableOfContents]: "目次",
-	[Key.tocEmpty]: "目次はありません",
+	[Key.tocEmpty]: "ここは空っぽです。<br>記事を開いてみませんか？",
 
 	// お知らせ
 	[Key.announcement]: "お知らせ",
@@ -27,7 +27,7 @@ export const ja: Translation = {
 
 	[Key.comments]: "コメント",
 	[Key.friends]: "友達",
-	[Key.friendsSubtitle]: "もっと素敵なウェブサイトを見つける",
+	[Key.friendsSubtitle]: "ここに私の友人たち、または役立つ場所があります",
 	[Key.friendsSearchPlaceholder]: "友達の名前または説明を検索...",
 	[Key.friendsFilterAll]: "すべて",
 	[Key.friendsNoResults]: "一致する友達が見つかりません",
@@ -63,7 +63,7 @@ export const ja: Translation = {
 
 	// アニメページ
 	[Key.animeTitle]: "視聴したアニメ",
-	[Key.animeSubtitle]: "アニメの旅の記録です",
+	[Key.animeSubtitle]: "美しい虚構に時間を溶かす",
 	[Key.animeStatusWatching]: "視聴中",
 	[Key.animeStatusCompleted]: "完了",
 	[Key.animeStatusPlanned]: "検討中",
@@ -85,11 +85,11 @@ export const ja: Translation = {
 		"src/config/siteConfig.tsファイルにBangumiのユーザーIDを設定してください",
 
 	// 日記ページ
-	[Key.diarySubtitle]: "いつでも、どこでも生活を共有",
+	[Key.diarySubtitle]: "言葉の欠片で綴る日常",
 	[Key.diaryNoResults]: "一致するモーメントはありません",
 	[Key.diaryCount]: "件の日記のエントリー",
 
-	[Key.diaryTips]: "最新の30件の日記のエントリーのみを表示",
+	[Key.diaryTips]: "お見せできるのは、ひとまずここまでです。",
 	[Key.diaryMinutesAgo]: "分前",
 	[Key.diaryHoursAgo]: "時間前",
 	[Key.diaryDaysAgo]: "日前",
@@ -128,7 +128,7 @@ export const ja: Translation = {
 
 	// アルバムページ
 	[Key.albums]: "アルバム",
-	[Key.albumsSubtitle]: "人生の美しい瞬間の記録です",
+	[Key.albumsSubtitle]: "かけがえのない時間の欠片を記録する",
 	[Key.albumsEmpty]: "コンテンツはありません",
 	[Key.albumsEmptyDesc]:
 		"まだアルバムが作成されていません。美しい思い出を追加しましょう!",
@@ -276,7 +276,7 @@ export const ja: Translation = {
 
 	// タイムラインページ
 	[Key.timeline]: "タイムライン",
-	[Key.timelineSubtitle]: "成長への旅と重要なマイルストーン",
+	[Key.timelineSubtitle]: "私がこの世界に残した軌跡",
 	[Key.timelineEducation]: "教育",
 	[Key.timelineWork]: "実務経験",
 	[Key.timelineProject]: "プロジェクト経験",
@@ -298,8 +298,7 @@ export const ja: Translation = {
 	// パスワード保護
 	[Key.passwordProtected]: "パスワードで保護されています",
 	[Key.passwordProtectedTitle]: "このコンテンツはパスワードで保護されています",
-	[Key.passwordProtectedDescription]:
-		"保護されたコンテンツを表示するにはパスワードを入力してください。",
+	[Key.passwordProtectedDescription]: "大切にしまっておきたい内容もあります",
 	[Key.postEncrypted]: "暗号化済み",
 	[Key.postEncryptedMessage]: "この記事は暗号化されています",
 	[Key.passwordPlaceholder]: "パスワードを入力",
@@ -390,6 +389,6 @@ export const ja: Translation = {
 	// 関連した投稿とランダムな投稿
 	[Key.relatedPosts]: "関連した投稿",
 	[Key.randomPosts]: "ランダムな投稿",
-	[Key.smartRecommend]: "スマート",
-	[Key.randomRecommend]: "ランダム",
+	[Key.smartRecommend]: "おすすめ",
+	[Key.randomRecommend]: "おまかせ",
 };

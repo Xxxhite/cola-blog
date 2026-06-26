@@ -19,7 +19,7 @@ export const en: Translation = {
 	[Key.recentPosts]: "Recent Posts",
 	[Key.postList]: "Post List",
 	[Key.tableOfContents]: "Table of Contents",
-	[Key.tocEmpty]: "No table of contents",
+	[Key.tocEmpty]: "It's empty here.<br>Why not open an article?",
 
 	// Announcement
 	[Key.announcement]: "Announcement",
@@ -27,7 +27,7 @@ export const en: Translation = {
 
 	[Key.comments]: "Comments",
 	[Key.friends]: "Friends",
-	[Key.friendsSubtitle]: "Discover more great websites",
+	[Key.friendsSubtitle]: "Here are my friends, or some useful places",
 	[Key.friendsSearchPlaceholder]: "Search friend's name or description...",
 	[Key.friendsFilterAll]: "All",
 	[Key.friendsNoResults]: "No matching friends found",
@@ -63,7 +63,7 @@ export const en: Translation = {
 
 	// Anime Page
 	[Key.animeTitle]: "My Anime List",
-	[Key.animeSubtitle]: "Record my anime journey",
+	[Key.animeSubtitle]: "Wasting time in beautiful fictions",
 	[Key.animeStatusWatching]: "Watching",
 	[Key.animeStatusCompleted]: "Completed",
 	[Key.animeStatusPlanned]: "Planned",
@@ -85,11 +85,11 @@ export const en: Translation = {
 		"Please set your Bangumi userId in the src/config/siteConfig.ts file",
 
 	// Diary Page
-	[Key.diarySubtitle]: "Share life, anytime, anywhere",
+	[Key.diarySubtitle]: "Fragments of words, traces of daily life",
 	[Key.diaryNoResults]: "No matching moments",
 	[Key.diaryCount]: "entries",
 
-	[Key.diaryTips]: "Only show the latest 30 diary entries",
+	[Key.diaryTips]: "This is as far as you can see for now.",
 	[Key.diaryMinutesAgo]: "minutes ago",
 	[Key.diaryHoursAgo]: "hours ago",
 	[Key.diaryDaysAgo]: "days ago",
@@ -127,7 +127,7 @@ export const en: Translation = {
 
 	// Albums Page
 	[Key.albums]: "Albums",
-	[Key.albumsSubtitle]: "Record beautiful moments in life",
+	[Key.albumsSubtitle]: "Recording precious fragments of time",
 	[Key.albumsEmpty]: "No content",
 	[Key.albumsEmptyDesc]:
 		"No albums have been created yet. Go add some beautiful memories!",
@@ -274,7 +274,7 @@ export const en: Translation = {
 
 	// Timeline Page
 	[Key.timeline]: "Timeline",
-	[Key.timelineSubtitle]: "My growth journey and important milestones",
+	[Key.timelineSubtitle]: "The traces I leave upon this world",
 	[Key.timelineEducation]: "Education",
 	[Key.timelineWork]: "Work Experience",
 	[Key.timelineProject]: "Project Experience",
@@ -296,8 +296,7 @@ export const en: Translation = {
 	// Password Protection
 	[Key.passwordProtected]: "Password Protected",
 	[Key.passwordProtectedTitle]: "This content is password protected",
-	[Key.passwordProtectedDescription]:
-		"Please enter the password to view the protected content",
+	[Key.passwordProtectedDescription]: "Some content is always worth cherishing",
 	[Key.postEncrypted]: "Encrypted",
 	[Key.postEncryptedMessage]: "This post is encrypted",
 	[Key.passwordPlaceholder]: "Enter password",
@@ -387,6 +386,6 @@ export const en: Translation = {
 	// Related Posts & Random Posts
 	[Key.relatedPosts]: "Related Posts",
 	[Key.randomPosts]: "Random Posts",
-	[Key.smartRecommend]: "Smart",
-	[Key.randomRecommend]: "Random",
+	[Key.smartRecommend]: "For You",
+	[Key.randomRecommend]: "Discover",
 };
