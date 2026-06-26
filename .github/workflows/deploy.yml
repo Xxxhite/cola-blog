@@ -6,7 +6,7 @@ on:
   push:
     branches: [ main ]
   repository_dispatch:
-    type:
+    types:
       - content-updated
   # 允许你在 GitHub 上的 Actions 标签中手动触发此"工作流程"
   workflow_dispatch:
@@ -18,6 +18,9 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
@@ -50,5 +53,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: pages # 部署到pages分支
-          folder: dist # Astro默认构建输出目录
+          folder: frontend/dist # Astro默认构建输出目录
           clean: true # 清理目标分支中的旧文件
