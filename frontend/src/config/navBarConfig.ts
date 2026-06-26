@@ -152,6 +152,12 @@ export const navBarConfig: NavBarConfig = {
 					icon: "mdi:git",
 				},
                 {
+                    name: "X",
+                    url: "https://x.com/cola_aaaaaaaaa",
+                    external: true,
+                    icon: "fa7-brands:x-twitter",
+                },
+                {
                     name: "Bilibili",
                     url: "https://space.bilibili.com/349255027",
                     external: true,

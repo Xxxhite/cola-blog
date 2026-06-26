@@ -21,6 +21,11 @@ export const profileConfig: ProfileConfig = {
             url: "https://gitee.com/xxxhite",
         },
         {
+            name: "X",
+            url: "https://x.com/cola_aaaaaaaaa",
+            icon: "fa7-brands:x-twitter",
+        },
+        {
             name: "Bilibili",
             icon: "fa7-brands:bilibili",
             url: "https://space.bilibili.com/349255027",

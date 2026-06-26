@@ -6,10 +6,10 @@ const SITE_LANG = "zh_CN"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
 // 定义站点时区
 const SITE_TIMEZONE = 8; //设置你的网站时区 from -12 to 12 default in UTC+8
 
-export const siteConfig: SiteConfig = { // TODO: 反正todo
+export const siteConfig: SiteConfig = {
     title: "一罐可乐",
     subtitle: "我没想好写啥",
-    siteURL: "https://mizuki.mysqil.com/", // 请替换为你的站点URL，以斜杠结尾
+    siteURL: "https://blog.sopak.space/", // 请替换为你的站点URL，以斜杠结尾
     siteStartDate: "2026-05-28", // 站点开始运行日期，用于站点统计组件计算运行天数
 
     timeZone: SITE_TIMEZONE,
@@ -150,10 +150,12 @@ export const siteConfig: SiteConfig = { // TODO: 反正todo
             switchable: true,
 
             subtitle: [ // TODO: 找点话放这
-                "今天开始我要自己上厕所",
-                "爸爸妈妈你们不要小看我",
-                "宝宝巴士教我上厕所秘诀",
-                "我等不及了我要上厕所",
+                "Reconnecting 1/5",
+                "Reconnecting 2/5",
+                "Reconnecting 3/5",
+                "Reconnecting 4/5",
+                "Reconnecting 5/5",
+                "Token limit reached, resets 5pm"  // good
             ],
             typewriter: {
                 enable: true, // 启用副标题打字机效果
