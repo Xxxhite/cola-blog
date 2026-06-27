@@ -7,7 +7,7 @@ export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 			"/assets/desktop-banner/1.jpg",
 		],
 		mobile: [
-
+            "/assets/desktop-banner/1.jpg",
 		],
 	},
 	position: "center",

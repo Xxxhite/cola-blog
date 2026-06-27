@@ -116,7 +116,7 @@ export const siteConfig: SiteConfig = {
                 "/assets/desktop-banner/1.jpg",
             ], // 桌面横幅图片
             mobile: [
-                // TODO: 搞点移动端的背景图片
+                "/assets/desktop-banner/1.jpg"
             ], // 移动横幅图片
         }, // 使用本地横幅图片
 
