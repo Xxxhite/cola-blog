@@ -99,7 +99,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 
 	// 侧栏组件布局配置
 	components: {
-		left: ["profile", "announcement", "site-stats", "card-toc", "categories", "tags"],
+		left: ["profile", "announcement", "site-stats", "card-toc", "categories", "tags", "calendar"],
 		right: [],
 		drawer: ["announcement", "site-stats", "categories", "tags"],
 	},
