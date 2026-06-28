@@ -62,7 +62,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			// 响应式配置
 			responsive: {
 				// 折叠阈值：当标签数量超过20个时自动折叠
-				collapseThreshold: 20,
+				collapseThreshold: 10,
 			},
 		},
 		{
@@ -99,9 +99,20 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 
 	// 侧栏组件布局配置
 	components: {
-		left: ["profile", "announcement", "site-stats", "card-toc", "categories", "tags", "calendar"],
+		left: [
+            "profile",
+            "announcement",
+            "site-stats",
+            "card-toc",
+            "categories",
+            "tags"],
 		right: [],
-		drawer: ["announcement", "site-stats", "categories", "tags"],
+		drawer: [
+            "profile",
+            "announcement",
+            "site-stats",
+            "categories",
+            "tags"],
 	},
 
 	// 默认动画配置
