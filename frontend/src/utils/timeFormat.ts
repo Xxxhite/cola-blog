@@ -1,3 +1,5 @@
+import { parseDateWithSiteTimezone } from "./date-utils";
+
 /**
  * Format relative time for diary moments
  * @param dateString ISO date string
@@ -11,7 +13,7 @@ export function formatRelativeTime(
 	hoursAgo: string,
 	daysAgo: string,
 ): string {
-	const date = new Date(dateString);
+	const date = parseDateWithSiteTimezone(dateString);
 	const diffInMinutes = Math.floor((Date.now() - date.getTime()) / (1000 * 60));
 
 	if (diffInMinutes < 60) {

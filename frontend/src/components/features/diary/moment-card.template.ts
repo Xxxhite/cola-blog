@@ -2,6 +2,7 @@
 // 参考: DIARY_MEMOS_SETUP.md
 
 import type { DiaryItem } from "../../../data/diary";
+import { parseDateWithSiteTimezone } from "../../../utils/date-utils";
 
 // --- Memos API 响应类型 ---
 
@@ -71,7 +72,7 @@ export function transformMemosToDiary(
 			if (!aM?.pinned && bM?.pinned) {
 				return 1;
 			}
-			return new Date(b.date).getTime() - new Date(a.date).getTime();
+			return parseDateWithSiteTimezone(b.date).getTime() - parseDateWithSiteTimezone(a.date).getTime();
 		});
 }
 
@@ -83,7 +84,7 @@ export function formatRelativeTime(
 	hoursAgo: string,
 	daysAgo: string,
 ): string {
-	const date = new Date(dateString);
+	const date = parseDateWithSiteTimezone(dateString);
 	const diffInMinutes = Math.floor((Date.now() - date.getTime()) / (1000 * 60));
 
 	if (diffInMinutes < 60) {

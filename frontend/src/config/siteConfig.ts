@@ -253,4 +253,4 @@ export const siteConfig: SiteConfig = {
     },
 };
 
-export {SITE_LANG};
+export {SITE_LANG, SITE_TIMEZONE};

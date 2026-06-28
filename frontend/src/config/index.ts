@@ -77,7 +77,7 @@ export { shareConfig } from "./shareConfig";
 // ─── 布局 ───────────────────────────────────────────────────
 export { sidebarLayoutConfig } from "./sidebarConfig";
 // ─── 站点核心 ───────────────────────────────────────────────
-export { SITE_LANG, siteConfig } from "./siteConfig";
+export { SITE_LANG, SITE_TIMEZONE, siteConfig } from "./siteConfig";
 
 import { announcementConfig } from "./announcementConfig";
 import { fullscreenWallpaperConfig } from "./backgroundWallpaper";
