@@ -40,7 +40,12 @@ const relativeTime = formatRelativeTime(
 					]}
 				>
 					{moment.images.map((image, imgIndex) => (
-						<div class="relative rounded-lg overflow-hidden aspect-square cursor-pointer">
+						<div
+							class:list={[
+								"relative rounded-lg overflow-hidden cursor-pointer",
+								moment.images!.length === 1 ? "aspect-[4/3]" : "aspect-square"
+							]}
+						>
 							<a
 								href="javascript:void(0)"
 								data-src={image}

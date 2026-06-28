@@ -142,11 +142,12 @@ function renderMomentCard(
 
 	let imagesHtml = "";
 	if (moment.images && moment.images.length > 0) {
-		const layoutClass = getImageLayoutClass(moment.images.length);
+		const imageCount = moment.images.length;
+		const layoutClass = getImageLayoutClass(imageCount);
 		const imgs = moment.images
 			.map(
 				(img, i) => `
-				<div class="relative rounded-lg overflow-hidden aspect-square cursor-pointer">
+				<div class="relative rounded-lg overflow-hidden ${imageCount === 1 ? 'aspect-[4/3]' : 'aspect-square'} cursor-pointer">
 					<a href="javascript:void(0)" data-src="${escapeHtml(img)}" data-fancybox="diary-${index}-${i}" class="block w-full h-full">
 						<img src="${escapeHtml(img)}" alt="diary moment image" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" loading="lazy" decoding="async" />
 					</a>
