@@ -1,7 +1,16 @@
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import { ROOT_DIR, readFilesRecursively } from "./utils.js";
 import { getFontConfigs } from "./config-parser.js";
+
+function getFileHash(filePath) {
+	if (!fs.existsSync(filePath)) return "";
+	const fileBuffer = fs.readFileSync(filePath);
+	const hashSum = crypto.createHash("md5");
+	hashSum.update(fileBuffer);
+	return hashSum.digest("hex").substring(0, 8);
+}
 
 /**
  * 更新 dist 中的 CSS，将 ttf 引用替换为 woff2
@@ -55,15 +64,23 @@ export async function updateCssFontReferences() {
 						"g",
 					);
 
+					const woff2Hash = getFileHash(distWoff2) || getFileHash(publicWoff2);
+					const hashQuery = woff2Hash ? `?v=${woff2Hash}` : "";
+
 					if (fontConfig.enableCompress) {
 						cssContent = cssContent.replace(
 							ttfPattern,
-							`url("/assets/font/${woff2File}") format("woff2")`,
+							`url("/assets/font/${woff2File}${hashQuery}") format("woff2")`,
 						);
 					} else if (fs.existsSync(publicWoff2)) {
+						const distTtf = path.join(ROOT_DIR, `dist/assets/font/${baseName}.ttf`);
+						const publicTtf = path.join(publicFontDir, `${baseName}.ttf`);
+						const ttfHash = getFileHash(distTtf) || getFileHash(publicTtf);
+						const ttfHashQuery = ttfHash ? `?v=${ttfHash}` : "";
+
 						cssContent = cssContent.replace(
 							ttfPattern,
-							`url("/assets/font/${woff2File}") format("woff2"), url("/assets/font/${baseName}.ttf") format("truetype")`,
+							`url("/assets/font/${woff2File}${hashQuery}") format("woff2"), url("/assets/font/${baseName}.ttf${ttfHashQuery}") format("truetype")`,
 						);
 					}
 
@@ -102,9 +119,19 @@ export async function updateCssFontReferences() {
 				);
 
 				if (cssContent.match(ttfPattern)) {
+					const distWoff2 = path.join(ROOT_DIR, `dist/assets/font/${file}`);
+					const publicWoff2 = path.join(publicFontDir, file);
+					const woff2Hash = getFileHash(distWoff2) || getFileHash(publicWoff2);
+					const hashQuery = woff2Hash ? `?v=${woff2Hash}` : "";
+
+					const distTtf = path.join(ROOT_DIR, `dist/assets/font/${ttfFile}`);
+					const publicTtf = path.join(publicFontDir, ttfFile);
+					const ttfHash = getFileHash(distTtf) || getFileHash(publicTtf);
+					const ttfHashQuery = ttfHash ? `?v=${ttfHash}` : "";
+
 					cssContent = cssContent.replace(
 						ttfPattern,
-						`url("/assets/font/${file}") format("woff2"), url("/assets/font/${ttfFile}") format("truetype")`,
+						`url("/assets/font/${file}${hashQuery}") format("woff2"), url("/assets/font/${ttfFile}${ttfHashQuery}") format("truetype")`,
 					);
 					fs.writeFileSync(cssFile, cssContent);
 					console.log(
