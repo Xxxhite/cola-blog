@@ -138,7 +138,7 @@ export const siteConfig: SiteConfig = {
         // PicFlow API支持(智能图片API)
         imageApi: {
             enable: false, // 启用图片API
-            url: "http://domain.com/api_v2.php?format=text&count=4", // API地址，返回每行一个图片链接的文本
+            url: "", // API地址，返回每行一个图片链接的文本
         },
         // 这里需要使用PicFlow API的Text返回类型,所以我们需要format=text参数
         // 项目地址:https://github.com/matsuzaka-yuki/PicFlow-API
@@ -155,7 +155,7 @@ export const siteConfig: SiteConfig = {
                 "Reconnecting 3/5",
                 "Reconnecting 4/5",
                 "Reconnecting 5/5",
-                "Token limit reached, resets 5pm"  // good
+                "Token limit reached, resets 5pm"
             ],
             typewriter: {
                 enable: true, // 启用副标题打字机效果
@@ -183,9 +183,9 @@ export const siteConfig: SiteConfig = {
         desktopSidebar: false, // 电脑端右侧边栏 TOC
         floating: true, // 悬浮 TOC 按钮
         depth: 2, // 目录深度，1-6，1 表示只显示 h1 标题，2 表示显示 h1 和 h2 标题，依此类推
-        useJapaneseBadge: false, // 使用日语假名标记（あいうえお...）代替数字，开启后会将 1、2、3... 改为 あ、い、う...
+        useJapaneseBadge: true, // 使用日语假名标记（あいうえお...）代替数字，开启后会将 1、2、3... 改为 あ、い、う...
     },
-    showCoverInContent: false, // 在文章内容页显示文章封面
+    showCoverInContent: true, // 在文章内容页显示文章封面
     generateOgImages: false, // 启用生成OpenGraph图片功能,注意开启后要渲染很长时间，不建议本地调试的时候开启
     favicon: [
         // 留空以使用默认 favicon
