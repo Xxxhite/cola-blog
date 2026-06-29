@@ -2,7 +2,7 @@
 
 > 🤖 **Note:** 本 README 文档由 AI 协助生成。
 
-这是一个基于 [Astro](https://astro.build/) 框架和 [Mizuki](https://github.com/mizuki-project/mizuki) 主题进行深度二次开发的个人博客项目。项目采用了 Monorepo 的结构，分为前端界面展示与规划中的后端服务。
+这是一个基于 [Astro](https://astro.build/) 框架和 [Mizuki](https://github.com/LyraVoid/Mizuki) 主题进行深度二次开发的个人博客项目。项目采用了 Monorepo 的结构，分为前端界面展示与规划中的后端服务。
 
 ## ✨ 特性
 
@@ -53,6 +53,13 @@ pnpm run compress-fonts
 ```
 *(注：如果代码推送至云端，CI/CD 在执行 `pnpm run build` 打包时会自动触发此扫描脚本，线上环境无需担心缺字。)*
 
+## ☁️ 自动部署
+
+本项目支持自动化构建和部署。通过配置 CI/CD 流程（例如 GitHub Actions），在您向仓库推送代码后，系统将自动进行依赖安装、字体子集化压缩和静态站点构建，并将其发布到目标托管平台。
+
+关于在不同托管平台（如 Vercel, Cloudflare Pages 等）的具体自动部署配置步骤，请参阅：
+👉 [Mizuki 官方自动部署文档](https://docs.mizuki.mysqil.com/Other/auto/)
+
 ## 🛠️ 关于后端服务
 
 > **Status: Work In Progress (🚧 建设中)**
@@ -67,7 +74,7 @@ pnpm run compress-fonts
 ## 📜 鸣谢与版权
 
 *   **框架支持**：[Astro](https://astro.build/)
-*   **主题来源**：[Mizuki](https://github.com/matsuzaka-yuki/Mizuki)
+*   **主题来源**：[Mizuki](https://github.com/LyraVoid/Mizuki)
 
 **版权声明：**
 本项目代码部分的修改遵循原主题的开源协议。
