@@ -1,10 +1,10 @@
-# 🥤 可乐的个人空间 (Cola's Blog)
+# 🥤 可乐的个人空间
 
 > 🤖 **Note:** 本 README 文档由 AI 协助生成。
 
 这是一个基于 [Astro](https://astro.build/) 框架和 [Mizuki](https://github.com/mizuki-project/mizuki) 主题进行深度二次开发的个人博客项目。项目采用了 Monorepo 的结构，分为前端界面展示与规划中的后端服务。
 
-## ✨ 特性 (Features)
+## ✨ 特性
 
 *   **⚡️ 极致性能**：由 Astro 驱动的静态站点生成 (SSG)，配合子集字体动态压缩，首屏加载极快。
 *   **📱 响应式与多语言**：完美适配移动端与桌面端，并提供简、繁、英、日四种语言的深度定制 i18n 支持。
@@ -12,7 +12,7 @@
 *   **📚 多维度的内容记录**：支持 Markdown/MDX 撰写长文，并集成了独立的「日记 (Memos)」、「番剧」、「相册」及「时间轴」等特色页面。
 *   **🔒 隐私保护**：针对特定的生活碎片提供页面级密码保护功能。（虽然你想看也有办法看到）
 
-## 📂 目录结构 (Structure)
+## 📂 目录结构
 
 本仓库目前包含两大部分：
 
@@ -25,7 +25,7 @@ cola-blog/
 └── backend/            # 后端服务代码 (🚧 WIP)
 ```
 
-## 🚀 本地开发指南 (Local Development)
+## 🚀 本地开发指南
 
 目前生产环境主要运行的是 `frontend` 前端部分。
 
@@ -53,14 +53,18 @@ pnpm run compress-fonts
 ```
 *(注：如果代码推送至云端，CI/CD 在执行 `pnpm run build` 打包时会自动触发此扫描脚本，线上环境无需担心缺字。)*
 
-## 🛠️ 关于后端服务 (Backend Integration)
+## 🛠️ 关于后端服务
 
 > **Status: Work In Progress (🚧 建设中)**
 
 仓库中的 `backend/` 目录为规划中的后端服务模块。
 目前博客以纯静态生成 (SSG) 模式运行在前端架构上。该后端的引入是为了在未来支持更多的动态交互需求（例如自定义的数据源 API、访客统计、动态留言或个人的无头 CMS 管理等）。当前该模块处于建设状态，尚未正式接入前端的生产环境。
 
-## 📜 鸣谢与版权 (License & Acknowledgments)
+## 🥤 关于我
+
+以前就很喜欢喝可乐就叫这个名字了，这么久也懒得改，理论上想叫我什么都可以（
+
+## 📜 鸣谢与版权
 
 *   **框架支持**：[Astro](https://astro.build/)
 *   **主题来源**：[Mizuki](https://github.com/matsuzaka-yuki/Mizuki)
