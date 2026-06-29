@@ -27,7 +27,9 @@ cola-blog/
 
 ## 🚀 本地开发指南
 
-> 📖 **优先参考官方文档**：由于本项目基于 Mizuki 主题构建，关于主题的详细配置、功能定制及全面开发指南，请优先查阅 👉 [Mizuki 官方文档](https://docs.mizuki.mysqil.com/)。
+> 📖 **优先参考官方文档**：由于本项目基于 Mizuki 主题构建，关于主题的详细配置、功能定制及全面开发指南，请优先查阅
+>
+> 👉 [Mizuki 官方文档](https://docs.mizuki.mysqil.com/)。
 
 目前主要开发与构建的是 `frontend` 前端部分。
 
