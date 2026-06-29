@@ -550,9 +550,32 @@ export class SwupHooksManager {
 		const words = dataEl.dataset.words || "";
 
 		if (isPost && (date || category || words)) {
-			dateEl.textContent = date;
-			categoryEl.textContent = category;
-			wordsEl.textContent = words ? `${words} 字` : "";
+			if (date) {
+				dateEl.textContent = date;
+				dateEl.parentElement?.classList.remove("hidden");
+				dateEl.parentElement?.classList.add("inline-flex");
+			} else {
+				dateEl.parentElement?.classList.add("hidden");
+				dateEl.parentElement?.classList.remove("inline-flex");
+			}
+
+			if (category) {
+				categoryEl.textContent = category;
+				categoryEl.parentElement?.classList.remove("hidden");
+				categoryEl.parentElement?.classList.add("inline-flex");
+			} else {
+				categoryEl.parentElement?.classList.add("hidden");
+				categoryEl.parentElement?.classList.remove("inline-flex");
+			}
+
+			if (words) {
+				wordsEl.textContent = words;
+				wordsEl.parentElement?.classList.remove("hidden");
+				wordsEl.parentElement?.classList.add("inline-flex");
+			} else {
+				wordsEl.parentElement?.classList.add("hidden");
+				wordsEl.parentElement?.classList.remove("inline-flex");
+			}
 			metaEl.classList.remove("hidden");
 			metaEl.classList.remove("anim-in");
 

@@ -12,6 +12,8 @@ import type { MarkdownHeading } from "astro";
 import { Icon } from "astro-icon/components";
 
 import { fullscreenWallpaperConfig, siteConfig } from "../config";
+import { getTranslation } from "../i18n/translation";
+import I18nKey from "../i18n/i18nKey";
 import {
 	BANNER_HEIGHT,
 	BANNER_HEIGHT_FULLSCREEN,
@@ -60,6 +62,12 @@ const {
 } = Astro.props;
 const hasBannerCredit = siteConfig.banner.credit.enable;
 const hasBannerLink = !!siteConfig.banner.credit.url;
+
+// 多语言适配处理
+const currentLang = lang || siteConfig.lang || "en";
+const translations = getTranslation(currentLang);
+const displayCategory = category || translations[I18nKey.uncategorized] || "Uncategorized";
+const wordCountStr = wordCount ? `${wordCount} ${wordCount > 1 ? translations[I18nKey.wordsCount] : translations[I18nKey.wordCount]}` : "";
 
 // 检查是否为首页
 const isHomePage = Astro.url.pathname === "/" || Astro.url.pathname === "";
@@ -240,8 +248,8 @@ const defaultPostListLayout = siteConfig.postListLayout?.defaultMode || "list";
 							id="page-overlay-data"
 							data-title={title || ""}
 							data-date={publishedDate ? formatDateToYYYYMMDD(publishedDate) : ""}
-							data-category={category || ""}
-							data-words={wordCount ? String(wordCount) : ""}
+							data-category={displayCategory}
+							data-words={wordCountStr}
 							data-is-post={postSlug ? "true" : "false"}
 							data-is-home={isHomePage ? "true" : "false"}
 							data-wallpaper-mode={siteConfig.wallpaperMode.defaultMode}
