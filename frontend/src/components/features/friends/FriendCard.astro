@@ -56,8 +56,8 @@ const hostname = new URL(friend.siteurl).hostname;
 		<!-- 描述 -->
 		<p
 			class="text-sm text-black/60 dark:text-white/60 mb-4 line-clamp-2 min-h-[2.5rem]"
+			set:html={friend.desc}
 		>
-			{friend.desc}
 		</p>
 
 		<!-- 标签 -->
