@@ -104,15 +104,13 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
             "announcement",
             "site-stats",
             "card-toc",
-            "categories",
-            "tags"],
+            "categories"],
 		right: [],
 		drawer: [
             "profile",
             "announcement",
             "site-stats",
-            "categories",
-            "tags"],
+            "categories"],
 	},
 
 	// 默认动画配置
