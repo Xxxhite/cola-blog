@@ -60,29 +60,29 @@ const subtitle = i18n(I18nKey.diarySubtitle);
 			<!-- Gradient Banner -->
 			<div class="px-6 sm:px-9 py-6">
 				<div
-					class="rounded-xl bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark,var(--primary))] p-5 sm:p-6"
+					class="rounded-xl border-2 border-(--primary) bg-(--primary)/5 dark:bg-(--primary)/10 p-5 sm:p-6"
 				>
 					<div class="flex items-center justify-between gap-4">
 						<div class="min-w-0">
 							<h1
-								class="text-2xl sm:text-3xl font-bold text-white mb-1 drop-shadow-sm truncate"
+								class="text-2xl sm:text-3xl font-bold text-black/90 dark:text-white/90 mb-1 truncate"
 							>
 								{title}
 							</h1>
 							<p
-								class="text-sm sm:text-base text-white/80 truncate"
+								class="text-sm sm:text-base text-black/50 dark:text-white/50 truncate"
 							>
 								{subtitle}
 							</p>
 						</div>
 						<div class="shrink-0 text-center">
 							<span
-								class="block text-2xl sm:text-3xl font-bold text-white drop-shadow-sm"
+								class="block text-2xl sm:text-3xl font-bold text-(--primary)"
 							>
 								{moments.length}
 							</span>
 							<span
-								class="block text-xs sm:text-sm text-white/70"
+								class="block text-xs sm:text-sm text-black/50 dark:text-white/50"
 							>
 								{i18n(I18nKey.diaryCount)}
 							</span>
