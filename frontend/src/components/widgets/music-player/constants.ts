@@ -5,8 +5,16 @@ export const STORAGE_KEY_VOLUME = "music-player-volume";
 export const DEFAULT_VOLUME = 0.7;
 
 export const LOCAL_PLAYLIST: Song[] = [
+    {
+        id: 1,
+        title: "NIGHT DANCER",
+        artist: "imase",
+        cover: "assets/music/cover/imase - NIGHT DANCER.webp",
+        url: "assets/music/url/imase - NIGHT DANCER.mp3",
+        duration: 0,
+    },
 	{
-		id: 1,
+		id: 2,
 		title: "Flicker",
 		artist: "Andora,RANASOL",
 		cover: "assets/music/cover/Andora,RANASOL - Flicker.webp",
@@ -14,7 +22,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 2,
+		id: 3,
 		title: "Ave Mujica",
 		artist: "Ave Mujica",
 		cover: "assets/music/cover/Ave Mujica - Ave Mujica.webp",
@@ -22,7 +30,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 3,
+		id: 4,
 		title: "アディオス",
 		artist: "DAZBEE",
 		cover: "assets/music/cover/DAZBEE - アディオス.webp",
@@ -30,7 +38,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 4,
+		id: 5,
 		title: "迷星叫 (パラレルver.)",
 		artist: "あこがれの共演,戸山 香澄,美竹 蘭",
 		cover: "assets/music/cover/あこがれの共演,戸山 香澄,美竹 蘭 - 迷星叫 (パラレルver.).webp",
@@ -38,7 +46,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 5,
+		id: 6,
 		title: "MILABO",
 		artist: "ずっと真夜中でいいのに。",
 		cover: "assets/music/cover/ずっと真夜中でいいのに。 - MILABO.webp",
@@ -46,7 +54,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 6,
+		id: 7,
 		title: "あいつら全員同窓会",
 		artist: "ずっと真夜中でいいのに。",
 		cover: "assets/music/cover/ずっと真夜中でいいのに。 - あいつら全員同窓会.webp",
@@ -54,7 +62,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 7,
+		id: 8,
 		title: "お勉強しといてよ",
 		artist: "ずっと真夜中でいいのに。",
 		cover: "assets/music/cover/ずっと真夜中でいいのに。 - お勉強しといてよ.webp",
@@ -62,7 +70,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 8,
+		id: 9,
 		title: "消えてしまいそうです",
 		artist: "ずっと真夜中でいいのに。",
 		cover: "assets/music/cover/ずっと真夜中でいいのに。 - 消えてしまいそうです.webp",
@@ -70,7 +78,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 9,
+		id: 10,
 		title: "猫リセット",
 		artist: "ずっと真夜中でいいのに。",
 		cover: "assets/music/cover/ずっと真夜中でいいのに。 - 猫リセット.webp",
@@ -78,7 +86,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 10,
+		id: 11,
 		title: "ただ君に晴れ",
 		artist: "ヨルシカ",
 		cover: "assets/music/cover/ヨルシカ - ただ君に晴れ.webp",
@@ -86,7 +94,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 11,
+		id: 12,
 		title: "又三郎",
 		artist: "ヨルシカ",
 		cover: "assets/music/cover/ヨルシカ - 又三郎.webp",
@@ -94,7 +102,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 12,
+		id: 13,
 		title: "晴る",
 		artist: "ヨルシカ",
 		cover: "assets/music/cover/ヨルシカ - 晴る.webp",
@@ -102,7 +110,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 13,
+		id: 14,
 		title: "言って。",
 		artist: "ヨルシカ",
 		cover: "assets/music/cover/ヨルシカ - 言って。.webp",
@@ -110,7 +118,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 14,
+		id: 15,
 		title: "ギターと孤独と蒼い惑星",
 		artist: "結束バンド",
 		cover: "assets/music/cover/結束バンド - ギターと孤独と蒼い惑星.webp",
@@ -118,7 +126,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 15,
+		id: 16,
 		title: "ラブソングが歌えない",
 		artist: "結束バンド",
 		cover: "assets/music/cover/結束バンド - ラブソングが歌えない.webp",
@@ -126,7 +134,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 16,
+		id: 17,
 		title: "光の中へ",
 		artist: "結束バンド",
 		cover: "assets/music/cover/結束バンド - 光の中へ.webp",
@@ -134,7 +142,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		duration: 0,
 	},
 	{
-		id: 17,
+		id: 18,
 		title: "青春コンプレックス",
 		artist: "結束バンド",
 		cover: "assets/music/cover/結束バンド - 青春コンプレックス.webp",
