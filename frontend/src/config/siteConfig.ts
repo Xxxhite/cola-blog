@@ -99,7 +99,7 @@ export const siteConfig: SiteConfig = {
 
     // 壁纸模式配置
     wallpaperMode: {
-        // 默认壁纸模式：banner=顶部横幅，fullscreen=全屏壁纸，none=无壁纸
+        // 默认壁纸模式：banner=顶部横幅，fullscreen=全屏壁纸，overlay=覆盖模式，none=无壁纸
         defaultMode: "banner",
         // 整体布局方案切换按钮显示设置（默认："desktop"）
         // "off" = 不显示
@@ -216,13 +216,13 @@ export const siteConfig: SiteConfig = {
 		},
 		cjkFont: {
 			// 中日韩字体 - 作为回退字体
-			fontFamily: "Noto Serif SC, Shippori Mincho",
+			fontFamily: "Shippori Mincho, Noto Serif SC",
 			fontWeight: "500",
 			localFonts: [
-                "NotoSerifSC-Regular.ttf",
-                "NotoSerifSC-Bold.ttf",
                 "ShipporiMincho-Regular.ttf",
                 "ShipporiMincho-Bold.ttf",
+                "NotoSerifSC-Regular.ttf",
+                "NotoSerifSC-Bold.ttf",
 			],
 			enableCompress: true, // 启用字体子集优化，减少字体文件大小
 		},
