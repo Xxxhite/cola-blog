@@ -114,9 +114,11 @@ export const siteConfig: SiteConfig = {
         src: { // 注意这里需要跟 /src/config/backgroundWallpaper.ts 同步修改
             desktop: [
                 "/assets/desktop-banner/1.jpg",
+                "/assets/desktop-banner/2.jpg",
             ], // 桌面横幅图片
             mobile: [
-                "/assets/desktop-banner/1.jpg"
+                "/assets/desktop-banner/1.jpg",
+                "/assets/desktop-banner/2.jpg",
             ], // 移动横幅图片
         }, // 使用本地横幅图片
 
