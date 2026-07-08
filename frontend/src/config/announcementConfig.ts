@@ -4,7 +4,7 @@ import type { AnnouncementConfig } from "../types/config";
 export const announcementConfig: AnnouncementConfig = {
 	title: "", // 公告标题，填空使用i18n字符串Key.announcement
 	content: // 公告内容，支持html标签
-        "绝赞建设中...<br>目前在往里填充内容",
+        "绝赞建设中...<br>欢迎来这里随便逛逛",
 	closable: false, // 允许用户关闭公告
 	link: {
 		enable: false, // 启用链接
