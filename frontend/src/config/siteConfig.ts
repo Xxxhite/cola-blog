@@ -117,8 +117,7 @@ export const siteConfig: SiteConfig = {
                 "/assets/desktop-banner/2.jpg",
             ], // 桌面横幅图片
             mobile: [
-                "/assets/desktop-banner/1.jpg",
-                "/assets/desktop-banner/2.jpg",
+                "/assets/mobile-banner/1.webp",
             ], // 移动横幅图片
         }, // 使用本地横幅图片
 
@@ -126,7 +125,7 @@ export const siteConfig: SiteConfig = {
 
         carousel: {
             enable: true, // 是否启用轮播
-            interval: 3, // 轮播切换间隔（秒）
+            interval: 10, // 轮播切换间隔（秒）
             switchable: true,
         },
 
