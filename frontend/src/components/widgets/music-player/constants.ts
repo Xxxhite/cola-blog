@@ -21,9 +21,9 @@ const PLAYLIST: Omit<Song, "id">[] = [
     },
     {
         title: "Flicker",
-        artist: "Andora,RANASOL",
-        cover: "assets/music/cover/Andora,RANASOL - Flicker.webp",
-        url: "assets/music/url/Andora,RANASOL - Flicker.mp3",
+        artist: "Andora, RANASOL",
+        cover: "assets/music/cover/Andora, RANASOL - Flicker.webp",
+        url: "assets/music/url/Andora, RANASOL - Flicker.mp3",
         duration: 0,
     },
     {
