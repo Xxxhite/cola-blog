@@ -41,10 +41,24 @@ const PLAYLIST: Omit<Song, "id">[] = [
         duration: 0,
     },
     {
+        title: "春日影",
+        artist: "MyGO!!!!!",
+        cover: "assets/music/cover/MyGO!!!!! - 春日影 (MyGO!!!!! ver.).webp",
+        url: "assets/music/url/MyGO!!!!! - 春日影 (MyGO!!!!! ver.).mp3",
+        duration: 0,
+    },
+    {
+        title: "影色舞",
+        artist: "MyGO!!!!!",
+        cover: "assets/music/cover/MyGO!!!!! - 影色舞.webp",
+        url: "assets/music/url/MyGO!!!!! - 影色舞.mp3",
+        duration: 0,
+    },
+    {
         title: "迷星叫 (パラレルver.)",
-        artist: "あこがれの共演,戸山 香澄,美竹 蘭",
-        cover: "assets/music/cover/あこがれの共演,戸山 香澄,美竹 蘭 - 迷星叫 (パラレルver.).webp",
-        url: "assets/music/url/あこがれの共演,戸山 香澄,美竹 蘭 - 迷星叫 (パラレルver.).mp3",
+        artist: "あこがれの共演, 戸山 香澄, 美竹 蘭, LOCK, 椎名 立希",
+        cover: "assets/music/cover/あこがれの共演, 戸山 香澄, 美竹 蘭, LOCK, 椎名 立希- 迷星叫 (パラレルver.).webp",
+        url: "assets/music/url/あこがれの共演, 戸山 香澄, 美竹 蘭, LOCK, 椎名 立希- 迷星叫 (パラレルver.).mp3",
         duration: 0,
     },
     {
