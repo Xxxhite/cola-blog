@@ -57,8 +57,8 @@ const PLAYLIST: Omit<Song, "id">[] = [
     {
         title: "迷星叫 (パラレルver.)",
         artist: "あこがれの共演, 戸山 香澄, 美竹 蘭, LOCK, 椎名 立希",
-        cover: "assets/music/cover/あこがれの共演, 戸山 香澄, 美竹 蘭, LOCK, 椎名 立希- 迷星叫 (パラレルver.).webp",
-        url: "assets/music/url/あこがれの共演, 戸山 香澄, 美竹 蘭, LOCK, 椎名 立希- 迷星叫 (パラレルver.).mp3",
+        cover: "assets/music/cover/あこがれの共演, 戸山 香澄, 美竹 蘭, LOCK, 椎名 立希 - 迷星叫 (パラレルver.).webp",
+        url: "assets/music/url/あこがれの共演, 戸山 香澄, 美竹 蘭, LOCK, 椎名 立希 - 迷星叫 (パラレルver.).mp3",
         duration: 0,
     },
     {
