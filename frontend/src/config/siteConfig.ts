@@ -113,11 +113,13 @@ export const siteConfig: SiteConfig = {
         // 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
         src: { // 注意这里需要跟 /src/config/backgroundWallpaper.ts 同步修改
             desktop: [
-                "/assets/desktop-banner/1.jpg",
-                "/assets/desktop-banner/2.jpg",
+                "/assets/desktop-banner/3.jpg",
+                "/assets/desktop-banner/4.png",
+                "/assets/desktop-banner/5.png",
+                "/assets/desktop-banner/6.png",
             ], // 桌面横幅图片
             mobile: [
-                "/assets/mobile-banner/1.webp",
+                "/assets/mobile-banner/2.png",
             ], // 移动横幅图片
         }, // 使用本地横幅图片
 
