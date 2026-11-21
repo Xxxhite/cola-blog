@@ -670,10 +670,10 @@ html {
     box-decoration-break: clone;
 
     &:not(:hover) {
-        color: var(--_spoiler-mask);
+        color: transparent;
 
         * {
-            color: var(--_spoiler-mask);
+            opacity: 0;
         }
     }
 }
